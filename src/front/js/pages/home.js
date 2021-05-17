@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
-import rigoImageUrl from "../../img/rigo-baby.jpg";
 import "../../styles/home.scss";
 
 export const Home = () => {
@@ -8,9 +7,9 @@ export const Home = () => {
 
 	return (
 		<div className="text-center mt-5">
-			<h1>Hello Rigo!</h1>
+			<h1>TEAM PMP</h1>
 			<p>
-				<img src={rigoImageUrl} />
+				<img src="" />
 			</p>
 			<div className="alert alert-info">{store.message || "Loading message from the backend..."}</div>
 			<p>
