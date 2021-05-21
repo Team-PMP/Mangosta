@@ -1,0 +1,18 @@
+/* NAVBAR STYLES */
+
+nav {
+    height: 60px;
+    background-color: rgb(231, 218, 231);
+    display: flex;
+    justify-content: space-between;
+}
+nav span{
+    padding-left: 30px;
+    padding-top: 10px;
+
+    font-size: 20px;
+    font-weight: 700;
+    
+    -webkit-text-stroke: .5px white;
+    -webkit-text-fill-color: black;
+}
