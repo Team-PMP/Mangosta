@@ -15,12 +15,11 @@ import Layout from "./layout";
 
 //render your react application
 ReactDOM.render(
-	<Auth0Provider>
-		<Layout
-			domain="amcarvajal.eu.auth0.com"
-			clientID="p01VMD0Qq110o99k84mCl6TXsqdQMgZK"
-			redirectUri={window.location.origin}
-		/>
+	<Auth0Provider
+		domain="amcarvajal.eu.auth0.com"
+		clientId="p01VMD0Qq110o99k84mCl6TXsqdQMgZK"
+		redirectUri={window.location.origin}>
+		<Layout />
 	</Auth0Provider>,
 	document.querySelector("#app")
 );

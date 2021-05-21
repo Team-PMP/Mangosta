@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import { LoginIcon } from "../login/login-icon";
+import { LogoutIcon } from "../logout/logout-icon";
+
 import "./styles.css";
 
 export const Navbar = () => {
@@ -28,6 +30,7 @@ export const Navbar = () => {
 				<span>SERVICIOS</span>
 
 				<LoginIcon />
+				<LogoutIcon />
 			</nav>
 		</>
 	);

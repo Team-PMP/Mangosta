@@ -1,3 +1,11 @@
 .login-icon {
     width: 30px;
+    right: 20px;
+    padding-top: 10px;
+}
+
+.login-icon:hover {
+    transition: .5s;
+   padding-top: 15px;
+    cursor: pointer;
 }
