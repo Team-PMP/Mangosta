@@ -5,5 +5,9 @@ import "./styles.css";
 export const LogoutIcon = () => {
 	const { logout } = useAuth0();
 
-	return <button onClick={() => logout({ returnTo: window.location.origin })}>Logout</button>;
+	return (
+		<button className="logout-icon" onClick={() => logout({ returnTo: window.location.origin })}>
+			Logout
+		</button>
+	);
 };
