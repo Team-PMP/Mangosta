@@ -3,7 +3,7 @@
     right: 30px;
     top: 10px;
     border-radius: 20px;
-    border: 2px solid black;
+    border: 6px solid rgb(206, 28, 28);
     height: 30px;
     transition: .5s;
 }
