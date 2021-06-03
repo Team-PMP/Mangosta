@@ -1,37 +1,38 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/home.scss";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
 
 	return (
 		<>
-			<div className="header container">
+			<div className="headerContainer">
 				<div className="information">
 					<h1>¿Quienes somos?</h1>
 					<p>
 						Somos el google de la enfermedades autoinmunes, una red social que acerca los profesionales a
-						los que estan en busqueda de ayuda tan valiosa como la suya.{" "}
+						los que estan en busqueda de ayuda tan valiosa como la suya.
 					</p>
 					<p>
 						Nos encargamos que todos nuestros usuarios ya sea profesional o paciente, tenga un trato rapido,
 						eficaz y staisfastorio.
 					</p>
 				</div>
-				<div className="img information">
-					<img src="" />
+				<div className="imgInformation">
+					<img src="https://picsum.photos/200/300" />
 				</div>
 			</div>
 
-			<div className="work container">
+			<div className="workContainer">
 				<div className="statement">
 					<h2>¿Nuevo en Autodoctor?</h2>
 					<p>Conecta con los mejores profesionales y la mejor comunidad en unos sencillos pasos</p>
 				</div>
 				<div className="card-group">
 					<div className="card">
-						<img className="card-img-top" src="..." alt="Card image cap" />
+						<img className="card-img-top" src="https://ibb.co/ckmyH8C" alt="Card image cap" />
 						<div className="card-body">
 							<p className="card-text">Create una cuenta o haz login.</p>
 						</div>
@@ -51,7 +52,7 @@ export const Home = () => {
 				</div>
 			</div>
 
-			<div className="resources container">
+			<div className="resourcesContainer">
 				<div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
 					<ol className="carousel-indicators">
 						<li data-target="#carouselExampleIndicators" data-slide-to="0" className="active" />
