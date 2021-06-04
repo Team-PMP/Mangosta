@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/home.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
+import ReactBootstrap, { Button, Card, CardDeck, Carousel } from "react-bootstrap";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
@@ -21,7 +22,7 @@ export const Home = () => {
 					</p>
 				</div>
 				<div className="imgInformation">
-					<img src="https://picsum.photos/200/300" />
+					<img src="https://picsum.photos/200" />
 				</div>
 			</div>
 
@@ -31,62 +32,57 @@ export const Home = () => {
 					<p>Conecta con los mejores profesionales y la mejor comunidad en unos sencillos pasos</p>
 				</div>
 				<div className="card-group">
-					<div className="card">
-						<img className="card-img-top" src="https://ibb.co/ckmyH8C" alt="Card image cap" />
-						<div className="card-body">
-							<p className="card-text">Create una cuenta o haz login.</p>
-						</div>
-					</div>
-					<div className="card">
-						<img className="card-img-top" src="..." alt="Card image cap" />
-						<div className="card-body">
-							<p className="card-text">Encuentra el profesional que más se adapte a tí.</p>
-						</div>
-					</div>
-					<div className="card">
-						<img className="card-img-top" src="..." alt="Card image cap" />
-						<div className="card-body">
-							<p className="card-text">Te ayudaran con tus problemas.</p>
-						</div>
-					</div>
+					<CardDeck>
+						<Card>
+							<Card.Img variant="top" src="https://picsum.photos/200" />
+							<Card.Body>
+								<Card.Text>Create una cuenta o haz login.</Card.Text>
+							</Card.Body>
+						</Card>
+						<Card>
+							<Card.Img
+								variant="top"
+								src="https://picsum.photos/200
+"
+							/>
+							<Card.Body>
+								<Card.Text>Encuentra el profesional que más se adapte a ti.</Card.Text>
+							</Card.Body>
+						</Card>
+						<Card>
+							<Card.Img variant="top" src="https://picsum.photos/200" />
+							<Card.Body>
+								<Card.Text>Te ayudarán con tus problemas.</Card.Text>
+							</Card.Body>
+						</Card>
+					</CardDeck>
 				</div>
 			</div>
 
 			<div className="resourcesContainer">
-				<div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
-					<ol className="carousel-indicators">
-						<li data-target="#carouselExampleIndicators" data-slide-to="0" className="active" />
-						<li data-target="#carouselExampleIndicators" data-slide-to="1" />
-						<li data-target="#carouselExampleIndicators" data-slide-to="2" />
-					</ol>
-					<div className="carousel-inner">
-						<div className="carousel-item active">
-							<img className="d-block w-100" src="..." alt="First slide" />
-						</div>
-						<div className="carousel-item">
-							<img className="d-block w-100" src="..." alt="Second slide" />
-						</div>
-						<div className="carousel-item">
-							<img className="d-block w-100" src="..." alt="Third slide" />
-						</div>
-					</div>
-					<a
-						className="carousel-control-prev"
-						href="#carouselExampleIndicators"
-						role="button"
-						data-slide="prev">
-						<span className="carousel-control-prev-icon" aria-hidden="true" />
-						<span className="sr-only">Previous</span>
-					</a>
-					<a
-						className="carousel-control-next"
-						href="#carouselExampleIndicators"
-						role="button"
-						data-slide="next">
-						<span className="carousel-control-next-icon" aria-hidden="true" />
-						<span className="sr-only">Next</span>
-					</a>
-				</div>
+				<Carousel variant="dark">
+					<Carousel.Item>
+						<img className="d-block w-100" src="https://picsum.photos/200" alt="First slide" />
+						<Carousel.Caption>
+							<h5>First slide label</h5>
+							<p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+						</Carousel.Caption>
+					</Carousel.Item>
+					<Carousel.Item>
+						<img className="d-block w-100" src="https://picsum.photos/200" alt="Second slide" />
+						<Carousel.Caption>
+							<h5>Second slide label</h5>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+						</Carousel.Caption>
+					</Carousel.Item>
+					<Carousel.Item>
+						<img className="d-block w-100" src="https://picsum.photos/200" alt="Third slide" />
+						<Carousel.Caption>
+							<h5>Third slide label</h5>
+							<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+						</Carousel.Caption>
+					</Carousel.Item>
+				</Carousel>
 			</div>
 		</>
 	);
