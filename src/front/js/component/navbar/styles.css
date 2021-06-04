@@ -1,2 +1,25 @@
 /* NAVBAR STYLES */
 
+.logo{
+    height: 4.2rem;
+}
+.navbar{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.404);
+    z-index: 999;
+}
+
+.dropdown{
+    font-size: 2rem;
+    margin-left: 3rem;
+    
+}
+
+
+.link{
+    font-size: 1.6rem;
+   
+}
+.main-button{
+    font-size: 2rem;
+    margin-left: 6rem;
+}

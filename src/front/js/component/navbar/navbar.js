@@ -1,6 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+//images
+import Logo from "../../../img/logo.png";
 //
+import { Profile } from "../profile/profile";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
@@ -19,19 +23,32 @@ export const Navigation = () => {
 
 	return (
 		<>
-			<Navbar bg="light" expand="lg">
-				<Navbar.Brand href="#home">Logo</Navbar.Brand>
+			<Navbar className="navbar ml-2" expand="lg">
+				<Navbar.Brand href="#home">
+					<img src={Logo} className="logo" />
+				</Navbar.Brand>
 				<Navbar.Toggle aria-controls="basic-navbar-nav" />
 				<Navbar.Collapse id="basic-navbar-nav">
-					<Nav className="mr-auto">
-						<NavDropdown title="Enfermedades" id="basic-nav-dropdown">
-							<NavDropdown.Item href="#action/3.1">Enfermedad de Crohn</NavDropdown.Item>
-							<NavDropdown.Item href="#action/3.2">Diabetes</NavDropdown.Item>
-							<NavDropdown.Item href="#action/3.3">Artritis reumatoide</NavDropdown.Item>
+					<Nav className="mr-auto ">
+						<NavDropdown className="dropwdown" title="Enfermedades" id="basic-nav-dropdown">
+							<NavDropdown.Item className="link" href="#action/3.1">
+								Enfermedad de Crohn
+							</NavDropdown.Item>
+							<NavDropdown.Item className="link" href="#action/3.2">
+								Diabetes
+							</NavDropdown.Item>
+							<NavDropdown.Item className="link" href="#action/3.3">
+								Artritis reumatoide
+							</NavDropdown.Item>
 							{/* <NavDropdown.Divider /> */}
 						</NavDropdown>
-						<Nav.Link href="#link">Profesionales</Nav.Link>
-						<Nav.Link href="#link">Servicios</Nav.Link>
+						<Nav.Link className="main-button" href="#link">
+							Profesionales
+						</Nav.Link>
+						<Nav.Link className="main-button" href="#link">
+							Servicios
+						</Nav.Link>
+						<Profile />
 					</Nav>
 					<Form inline>
 						{/* <FormControl type="text" placeholder="Search" className="mr-sm-2" />

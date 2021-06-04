@@ -1,0 +1,29 @@
+.mini-profile{
+    width: 2.7rem;
+    height: 2.7rem;
+    margin-top: 0.8rem;
+    border-radius: 999px;
+    border: 2px solid rgba(0, 0, 0, 0.644);
+    
+}
+.display-small-container{
+    display: block;
+}
+
+.small-container{
+    width: 12rem;
+    height: 5rem;
+    border: 1px solid rgba(0, 0, 0, 0.582);
+    position: absolute;
+    transform: translateY(79px);
+    background-color: white;
+    right: 0;
+    /* display: none */
+    
+}
+
+.nav-profile-container{
+    width: 30rem;
+    display: flex;
+    justify-content: flex-end;
+}
