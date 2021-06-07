@@ -3,4 +3,6 @@ button {
     background: white;
     font-size: 1.3rem;
     font-weight: 400;
+    /* position: absolute;
+    right: 1rem; */
 }

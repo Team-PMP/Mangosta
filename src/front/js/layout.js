@@ -6,6 +6,8 @@ import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
 import injectContext from "./store/appContext";
+//
+import { Perfil } from "./pages/perfil";
 
 import { Navigation } from "./component/navbar/navbar";
 import { Footer } from "./component/footer";
@@ -28,14 +30,19 @@ const Layout = () => {
 						<Route exact path="/demo">
 							<Demo />
 						</Route>
+						<Route exact path="/perfil">
+							<Perfil />
+						</Route>
 						<Route exact path="/single/:theid">
 							<Single />
 						</Route>
 						<Route>
-							<h1>Not found!</h1>
+							<h1 style={{ display: "flex", justifyContent: "center", marginTop: "3rem" }}>
+								Error 404! Página no encontrada! ☹️.
+							</h1>
 						</Route>
 					</Switch>
-					<Footer />
+					{/* <Footer /> */}
 				</ScrollToTop>
 			</BrowserRouter>
 		</div>

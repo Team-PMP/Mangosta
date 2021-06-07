@@ -4,6 +4,8 @@
     margin-top: 0.8rem;
     border-radius: 999px;
     border: 2px solid rgba(0, 0, 0, 0.644);
+    position: absolute;
+    right: 2rem;
     
 }
 .display-small-container{

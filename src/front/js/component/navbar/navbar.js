@@ -15,6 +15,7 @@ import FormControl from "react-bootstrap/FormControl";
 import { LoginIcon } from "../login/login-icon";
 import { LogoutIcon } from "../logout/logout-icon";
 import { useAuth0 } from "@auth0/auth0-react";
+import UserMenu from "../userMenu/userMenu";
 
 import "./styles.css";
 
@@ -50,17 +51,7 @@ export const Navigation = () => {
 						</Nav.Link>
 						<Profile />
 					</Nav>
-					<Form inline>
-						{/* <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-						<Button variant="outline-success">Search</Button> */}
-						{isAuthenticated ? (
-							<>
-								<LogoutIcon />
-							</>
-						) : (
-							<LoginIcon />
-						)}
-					</Form>
+					<Form inline>{isAuthenticated ? <></> : <LoginIcon />}</Form>
 				</Navbar.Collapse>
 			</Navbar>
 		</>
