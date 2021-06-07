@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { LoginIcon } from "../login/login-icon";
 import { LogoutIcon } from "../logout/logout-icon";
 import { useAuth0 } from "@auth0/auth0-react";
+import { registro } from "../registro/registro";
 
 import "./styles.css";
 
