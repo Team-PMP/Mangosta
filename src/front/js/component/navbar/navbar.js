@@ -31,7 +31,7 @@ export const Navigation = () => {
 					<AiFillHome style={{ width: "2rem", height: "2rem" }} />
 				</Navbar.Brand>
 				<Navbar.Toggle aria-controls="basic-navbar-nav" />
-				<Navbar.Collapse id="basic-navbar-nav">
+				<Navbar.Collapse id="basic-navbar-nav" className="navbarCollapse">
 					<Nav className="mr-auto ">
 						<NavDropdown className="dropwdown" title="Enfermedades" id="basic-nav-dropdown">
 							<NavDropdown.Item className="link" href="#action/3.1">

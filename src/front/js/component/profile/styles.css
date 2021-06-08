@@ -12,20 +12,22 @@
     display: block;
 }
 
-.small-container{
-    width: 12rem;
-    height: 5rem;
-    border: 1px solid rgba(0, 0, 0, 0.582);
-    position: absolute;
-    transform: translateY(79px);
-    background-color: white;
-    right: 0;
-    /* display: none */
-    
-}
-
 .nav-profile-container{
     width: 30rem;
     display: flex;
     justify-content: flex-end;
+}
+
+@media (max-width: 900px) {
+
+.mini-profile{
+    width: 2.3rem;
+    height: 2.3rem;
+    border: 2px solid rgba(0, 0, 0, 0.644);
+    bottom: 20px;
+
+    right: .5rem;
+}
+
+
 }

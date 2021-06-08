@@ -67,3 +67,24 @@
 
 /*  */
 
+@media (max-width: 900px) { 
+
+    .container{   
+    width: 90%;
+}
+
+
+.roles{
+    margin-top: 3rem;
+    margin-left: 2rem;
+    font-size: .8rem;  
+}
+
+.info span {
+    margin-top: 3rem;
+    font-size: 1.6rem;
+    color: black;
+    font-weight: 600;
+    border-radius: 10px;
+}
+}
