@@ -8,6 +8,8 @@ import { Single } from "./pages/single";
 import injectContext from "./store/appContext";
 //
 import { Perfil } from "./pages/perfil";
+import { Profesionales } from "./pages/profesionales";
+import { Servicios } from "./pages/servicios";
 
 import { Navigation } from "./component/navbar/navbar";
 import { Footer } from "./component/footer";
@@ -32,6 +34,12 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/perfil">
 							<Perfil />
+						</Route>
+						<Route exact path="/profesionales">
+							<Profesionales />
+						</Route>
+						<Route exact path="/servicios">
+							<Servicios />
 						</Route>
 						<Route exact path="/single/:theid">
 							<Single />

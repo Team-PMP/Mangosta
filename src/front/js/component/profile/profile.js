@@ -21,7 +21,6 @@ export const Profile = () => {
 	return (
 		isAuthenticated && (
 			<div className="nav-profile-container">
-				{isLoading ? <Spinner animation="border" /> : null}
 				<img src={user.picture} className="mini-profile" alt={user.name} onClick={handleClick} />
 				{showMiniMenu ? <UserMenu /> : null}
 			</div>

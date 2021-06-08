@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import { Context } from "../store/appContext";
-import "./PerfilStyles.css";
+import "../../styles/perfil.scss";
 ////
 export const Perfil = () => {
 	const { store, actions } = useContext(Context);

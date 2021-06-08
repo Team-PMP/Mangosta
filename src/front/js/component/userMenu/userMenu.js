@@ -7,18 +7,10 @@ export const userMenu = () => {
 	const basename = process.env.BASENAME || "";
 	return (
 		<div className="Container">
-			<BrowserRouter basename={basename}>
-				<div className="frame">
-					<Switch>
-						<Link exact to="/perfil">
-							<span>Perfil</span>
-						</Link>
-					</Switch>
-					<span>
-						<LogoutIcon />
-					</span>
-				</div>
-			</BrowserRouter>
+			<div className="frame">
+				<a href="/perfil">Perfil</a>
+				<LogoutIcon />
+			</div>
 		</div>
 	);
 };

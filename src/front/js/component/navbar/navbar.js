@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 //images
 import Logo from "../../../img/logo.png";
+import { AiFillHome } from "react-icons/ai";
+import Spinner from "react-bootstrap/Spinner";
 //
 import { Profile } from "../profile/profile";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
@@ -20,13 +22,13 @@ import UserMenu from "../userMenu/userMenu";
 import "./styles.css";
 
 export const Navigation = () => {
-	const { isAuthenticated, user } = useAuth0();
+	const { isLoading, isAuthenticated, user } = useAuth0();
 
 	return (
 		<>
-			<Navbar className="navbar ml-2" expand="lg">
-				<Navbar.Brand href="#home">
-					<img src={Logo} className="logo" />
+			<Navbar className="navbar" expand="lg">
+				<Navbar.Brand href="/">
+					<AiFillHome style={{ width: "2rem", height: "2rem" }} />
 				</Navbar.Brand>
 				<Navbar.Toggle aria-controls="basic-navbar-nav" />
 				<Navbar.Collapse id="basic-navbar-nav">
@@ -43,15 +45,18 @@ export const Navigation = () => {
 							</NavDropdown.Item>
 							{/* <NavDropdown.Divider /> */}
 						</NavDropdown>
-						<Nav.Link className="main-button" href="#link">
+						<Nav.Link className="main-button" href="/profesionales">
 							Profesionales
 						</Nav.Link>
-						<Nav.Link className="main-button" href="#link">
+						<Nav.Link className="main-button" href="/servicios">
 							Servicios
 						</Nav.Link>
 						<Profile />
 					</Nav>
-					<Form inline>{isAuthenticated ? <></> : <LoginIcon />}</Form>
+					<Form inline>
+						{isLoading ? <Spinner animation="border" /> : null}
+						{isAuthenticated ? <></> : <LoginIcon />}
+					</Form>
 				</Navbar.Collapse>
 			</Navbar>
 		</>
