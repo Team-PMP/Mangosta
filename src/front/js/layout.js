@@ -11,7 +11,7 @@ import { Perfil } from "./pages/perfil";
 import { Profesionales } from "./pages/profesionales";
 import { Servicios } from "./pages/servicios";
 
-import { Navigation } from "./component/navbar/navbar";
+import Navigation from "./component/navbar/navbar";
 import { Footer } from "./component/footer";
 
 //create your first component

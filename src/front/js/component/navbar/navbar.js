@@ -13,15 +13,14 @@ import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
-
-import { LoginIcon } from "../login/login-icon";
+import { LoginUser } from "../loginUser/loginUser";
+import { LoginProfesional } from "../loginProfesional/loginProfesional";
 import { LogoutIcon } from "../logout/logout-icon";
-import { useAuth0 } from "@auth0/auth0-react";
 import UserMenu from "../userMenu/userMenu";
-
+import { useAuth0 } from "@auth0/auth0-react";
 import "./styles.css";
 
-export const Navigation = () => {
+const Navigation = () => {
 	const { isLoading, isAuthenticated, user } = useAuth0();
 
 	return (
@@ -54,11 +53,18 @@ export const Navigation = () => {
 						<Profile />
 					</Nav>
 					<Form inline>
-						{isLoading ? <Spinner animation="border" /> : null}
-						{isAuthenticated ? <></> : <LoginIcon />}
+						{isLoading && <Spinner animation="border" />}
+						{!isAuthenticated && (
+							<>
+								<LoginUser />
+								<LoginProfesional />
+							</>
+						)}
 					</Form>
 				</Navbar.Collapse>
 			</Navbar>
 		</>
 	);
 };
+
+export default Navigation;
