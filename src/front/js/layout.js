@@ -6,8 +6,12 @@ import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
 import injectContext from "./store/appContext";
+//
+import { Perfil } from "./pages/perfil";
+import { Profesionales } from "./pages/profesionales";
+import { Servicios } from "./pages/servicios";
 
-import { Navbar } from "./component/navbar/navbar";
+import { Navigation } from "./component/navbar/navbar";
 import { Footer } from "./component/footer";
 import { ProfesionalSingin } from "./pages/profesional/profesionalSignin";
 import { UserSignin } from "./pages/user/userSignin";
@@ -22,7 +26,7 @@ const Layout = () => {
 		<div className="d-flex flex-column h-100">
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
-					<Navbar />
+					<Navigation />
 					<Switch>
 						<Route exact path="/">
 							<Home />
@@ -36,14 +40,25 @@ const Layout = () => {
 						<Route exact path="/demo">
 							<Demo />
 						</Route>
+						<Route exact path="/perfil">
+							<Perfil />
+						</Route>
+						<Route exact path="/profesionales">
+							<Profesionales />
+						</Route>
+						<Route exact path="/servicios">
+							<Servicios />
+						</Route>
 						<Route exact path="/single/:theid">
 							<Single />
 						</Route>
 						<Route>
-							<h1>Not found!</h1>
+							<h1 style={{ display: "flex", justifyContent: "center", marginTop: "3rem" }}>
+								Error 404! Página no encontrada! ☹️.
+							</h1>
 						</Route>
 					</Switch>
-					<Footer />
+					{/* <Footer /> */}
 				</ScrollToTop>
 			</BrowserRouter>
 		</div>
