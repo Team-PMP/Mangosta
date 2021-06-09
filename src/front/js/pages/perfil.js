@@ -13,6 +13,12 @@ export const Perfil = () => {
 	return (
 		isAuthenticated && (
 			<div className="container">
+				<div className="pestañaPerfil active">
+					<span>Perfil</span>
+				</div>
+				<div className="pestañaFavoritos">
+					<span>Favoritos</span>
+				</div>
 				<div className="headerInfo">
 					<img src={user.picture} className="picture" />
 					<div className="roles">

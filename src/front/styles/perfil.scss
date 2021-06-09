@@ -5,6 +5,8 @@
     border-radius: 15px;
     margin-top:  4rem;
     margin-bottom: 4rem;
+    z-index: 10;
+    position: relative;
     
 }
 .picture{
@@ -64,8 +66,59 @@
   background-color: rgb(42, 224, 87);
 }
 
+.pestañaFavoritos{
 
-/*  */
+    width: 5rem;
+    height: 2rem;
+    border: 2px solid rgba(0, 0, 0, 0.37);
+    transform: translateY(-2.2rem);
+    background-color: white;
+    z-index: -1;
+    text-align: center;
+    padding-top: .2rem;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    position: absolute;
+    border-bottom: 0px;
+    margin-left: 6rem;
+    
+}
+
+.pestañaFavoritos:hover{
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.pestañaPerfil{
+
+    width: 5rem;
+    height: 2rem;
+    border: 2px solid rgba(0, 0, 0, 0.37);
+    transform: translateY(-2.2rem);
+    background-color: white;
+    z-index: -1;
+    text-align: center;
+    padding-top: .2rem;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    position: absolute;
+    border-bottom: 0px;
+    
+}
+
+.pestañaPerfil:hover{
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.active{
+    font-weight: 600;
+
+}
+
+
+
+/* Media queries */
 
 @media (max-width: 900px) { 
 
