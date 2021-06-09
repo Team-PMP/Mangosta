@@ -11,16 +11,16 @@ export const UserSignin = () => {
 	// const [specialty, setSpecialty] = useState("");
 	// const [services, setServices] = useState("");
 
-	const [formData, setFormData] = useState({
-		username: "",
-		name: "",
-		surname: "",
-		email: "",
-		password: "",
-		repeatPassword: "",
-		specialty: "",
-		services: ""
-	});
+	// const [formData, setFormData] = useState({
+	// 	username: "",
+	// 	name: "",
+	// 	surname: "",
+	// 	email: "",
+	// 	password: "",
+	// 	repeatPassword: "",
+	// 	specialty: "",
+	// 	services: ""
+	// });
 
 	const handleSubmit = evt => {
 		evt.preventDefault();

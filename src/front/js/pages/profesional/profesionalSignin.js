@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Form, Col, Row, Container, Button } from "react-bootstrap";
 
 export const ProfesionalSignin = () => {
-	const [username, setUsername] = useState("");
 	const [name, setName] = useState("");
 	const [surname, setSurname] = useState("");
 	const [email, setEmail] = useState("");
@@ -11,16 +10,16 @@ export const ProfesionalSignin = () => {
 	const [specialty, setSpecialty] = useState("");
 	const [services, setServices] = useState("");
 
-	const [formData, setFormData] = useState({
-		username: "",
-		name: "",
-		surname: "",
-		email: "",
-		password: "",
-		repeatPassword: "",
-		specialty: "",
-		services: ""
-	});
+	// const [formData, setFormData] = useState({
+	// 	username: "",
+	// 	name: "",
+	// 	surname: "",
+	// 	email: "",
+	// 	password: "",
+	// 	repeatPassword: "",
+	// 	specialty: "",
+	// 	services: ""
+	// });
 
 	// const handleChange = evt => {
 	// 	setFormData({
@@ -30,18 +29,17 @@ export const ProfesionalSignin = () => {
 
 	const handleSubmit = evt => {
 		evt.preventDefault();
-		setFormData({
-			username: username,
+	const data={
 			name: name,
 			surname: surname,
 			email: email,
 			password: password,
-			repeatPassword: repeatPassword,
 			specialty: specialty,
-			services: services
-		});
+            services: services,
+            profesional: true,
+		};
 
-		console.log(formData);
+		console.log(data);
 	};
 
 	return (
@@ -61,7 +59,7 @@ export const ProfesionalSignin = () => {
 				</fieldset> */}
 
 				{/* Nombre de usuario */}
-				<Form.Group as={Row}>
+				{/* <Form.Group as={Row}>
 					<Form.Label column sm={2} htmlFor="username">
 						Nombre de Usuario
 					</Form.Label>
@@ -75,7 +73,7 @@ export const ProfesionalSignin = () => {
 							onChange={event => setUsername(event.target.value)}
 						/>
 					</Col>
-				</Form.Group>
+				</Form.Group> */}
 
 				{/* Nombre */}
 				<Form.Group as={Row}>
@@ -145,8 +143,8 @@ export const ProfesionalSignin = () => {
 					</Col>
 				</Form.Group>
 
-				{/* Repetir contraseña */}
-				<Form.Group as={Row}>
+				{/* Repetir contraseña */} 
+				 <Form.Group as={Row}>
 					<Form.Label column sm={2} htmlFor="repeatPassword">
 						Repetir Contraseña
 					</Form.Label>
