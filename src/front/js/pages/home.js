@@ -2,36 +2,47 @@ import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/home.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
-import ReactBootstrap, { Button, Card, CardDeck, Carousel } from "react-bootstrap";
+import ReactBootstrap, { Button, Card, CardDeck, Carousel, Image, Container, Row, Col } from "react-bootstrap";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
 
 	return (
 		<>
-			<div className="container">
-				<div className="row">
-					<div className="col-12 col-lg-8">
-						<h1>¿Quienes somos?</h1>
-						<p>
-							Somos el google de la enfermedades autoinmunes, una red social que acerca los profesionales
-							a los que estan en busqueda de ayuda tan valiosa como la suya.
-						</p>
-						<p>
-							Nos encargamos que todos nuestros usuarios ya sea profesional o paciente, tenga un trato
-							rapido, eficaz y staisfastorio.
-						</p>
-					</div>
-					<div className="col-12 col-lg-4">
-						<img
-							className="img1 mx-auto d-block"
-							src="https://img.freepik.com/foto-gratis/doctor-cruzando-brazos-mientras-sostiene-estetoscopio-bata-blanca_176474-8491.jpg?size=626&ext=jpg&ga=GA1.2.1419420958.1622851200 "
-						/>
-					</div>
-				</div>
+			{/* JUMBOTRON */}
 
+			<Card className="bg-dark text-white">
+				<Card.Img
+					src="https://img.freepik.com/vector-gratis/fondo-innovacion-medica-patron-icono-salud_115579-738.jpg?size=626&ext=jpg"
+					alt="Card image"
+				/>
+				<Card.ImgOverlay>
+					<div className="Tittle">EL GOOGLE DE LAS ENFERMEDADES AUTOINMUNES</div>
+					<div className="Text">
+						<Card.Text>
+							<br /> Una red social que acerca los profesionales
+							<br /> a los que estan en búsqueda de ayuda
+							<br />
+							tan valiosa como la suya.
+						</Card.Text>
+						<Card.Text>
+							Nos encargamos que todos nuestros usuarios
+							<br /> ya sea profesional o paciente,
+							<br /> tenga un trato rapido, eficaz y satisfactorio.
+						</Card.Text>
+						<Card.Text>
+							Disfruta de todas nuestras ventajas.
+							<br /> Conectamos salud.
+						</Card.Text>
+					</div>
+				</Card.ImgOverlay>
+			</Card>
+
+			{/* BODY-CARDS */}
+
+			<div className="container">
 				<div className="row card-group">
-					<div className="col-12">
+					<div className="col-12 header">
 						<h2>¿Nuevo en Autodoctor?</h2>
 						<p>Conecta con los mejores profesionales y la mejor comunidad en unos sencillos pasos</p>
 					</div>
@@ -67,6 +78,8 @@ export const Home = () => {
 						</CardDeck>
 					</div>
 				</div>
+
+				{/* CAROUSEL */}
 
 				<div className="row">
 					<div className="col-8 mx-auto d-block">
