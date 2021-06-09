@@ -9,7 +9,8 @@ import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar/navbar";
 import { Footer } from "./component/footer";
-import { Registro } from "./component/registro/registro";
+import { ProfesionalSingin } from "./pages/profesional/profesionalSignin";
+import { UserSignin } from "./pages/user/userSignin";
 
 //create your first component
 const Layout = () => {
@@ -26,8 +27,11 @@ const Layout = () => {
 						<Route exact path="/">
 							<Home />
 						</Route>
-						<Route exact path="/registro">
-							<Registro />
+						<Route exact path="/user/userSignin">
+							<UserSignin />
+						</Route>
+						<Route exact path="/profesional/profesionalSignin">
+							<UserSignin />
 						</Route>
 						<Route exact path="/demo">
 							<Demo />

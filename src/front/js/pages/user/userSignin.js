@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { Form, Col, Row, Container, Button } from "react-bootstrap";
 
-export const Registro = () => {
+export const UserSignin = () => {
 	const [username, setUsername] = useState("");
 	const [name, setName] = useState("");
 	const [surname, setSurname] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [repeatPassword, setRepeatPassword] = useState("");
-	const [specialty, setSpecialty] = useState("");
-	const [services, setServices] = useState("");
+	// const [specialty, setSpecialty] = useState("");
+	// const [services, setServices] = useState("");
 
 	const [formData, setFormData] = useState({
 		username: "",
@@ -21,12 +21,6 @@ export const Registro = () => {
 		specialty: "",
 		services: ""
 	});
-
-	// const handleChange = evt => {
-	// 	setFormData({
-	// 		[evt.target.name]: evt.target.value
-	// 	});
-	// };
 
 	const handleSubmit = evt => {
 		evt.preventDefault();
@@ -43,11 +37,10 @@ export const Registro = () => {
 
 		console.log(formData);
 	};
-
 	return (
 		<Container>
 			<Form className="mt-5" onSubmit={handleSubmit}>
-				{/* Tipo de usuario */}
+				{/* Tipo de usuario
 				<fieldset>
 					<Form.Group as={Row} className="align-items-center">
 						<Form.Label as="legend" column sm={2}>
@@ -58,7 +51,7 @@ export const Registro = () => {
 							<Form.Check type="radio" label="Usuario" name="typeOfUser" value="U" className="ml-4" />
 						</Row>
 					</Form.Group>
-				</fieldset>
+				</fieldset> */}
 
 				{/* Nombre de usuario */}
 				<Form.Group as={Row}>
@@ -163,7 +156,7 @@ export const Registro = () => {
 				</Form.Group>
 
 				{/* Especialidad */}
-				<Form.Group as={Row}>
+				{/* <Form.Group as={Row}>
 					<Form.Label column sm={2} htmlFor="specialty">
 						Especialidad
 					</Form.Label>
@@ -181,10 +174,10 @@ export const Registro = () => {
 							<option value="Reu">Reumatología</option>
 						</Form.Control>
 					</Col>
-				</Form.Group>
+				</Form.Group> */}
 
 				{/* Servicios */}
-				<Form.Group as={Row}>
+				{/* <Form.Group as={Row}>
 					<Form.Label column sm={2} htmlFor="services">
 						Servicios
 					</Form.Label>
@@ -202,7 +195,7 @@ export const Registro = () => {
 							<option value="Med">Meditación</option>
 						</Form.Control>
 					</Col>
-				</Form.Group>
+				</Form.Group> */}
 				<Row className="justify-content-center mt-5">
 					{/* Terminos y condiciones */}
 					<Form.Group as={Row}>
@@ -225,3 +218,4 @@ export const Registro = () => {
 		</Container>
 	);
 };
+export default UserSignin;
