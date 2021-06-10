@@ -13,7 +13,7 @@ import { Servicios } from "./pages/servicios";
 
 import { Navigation } from "./component/navbar/navbar";
 import { Footer } from "./component/footer";
-import { ProfesionalSingin } from "./pages/profesional/profesionalSignin";
+import { ProfesionalSignin } from "./pages/profesional/profesionalSignin";
 import { UserSignin } from "./pages/user/userSignin";
 
 //create your first component
@@ -35,7 +35,7 @@ const Layout = () => {
 							<UserSignin />
 						</Route>
 						<Route exact path="/profesional/profesionalSignin">
-							<UserSignin />
+							<ProfesionalSignin />
 						</Route>
 						<Route exact path="/demo">
 							<Demo />

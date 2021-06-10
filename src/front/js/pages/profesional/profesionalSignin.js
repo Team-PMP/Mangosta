@@ -29,14 +29,14 @@ export const ProfesionalSignin = () => {
 
 	const handleSubmit = evt => {
 		evt.preventDefault();
-	const data={
+		const data = {
 			name: name,
 			surname: surname,
 			email: email,
 			password: password,
 			specialty: specialty,
-            services: services,
-            profesional: true,
+			services: services,
+			profesional: true
 		};
 
 		console.log(data);
@@ -143,8 +143,8 @@ export const ProfesionalSignin = () => {
 					</Col>
 				</Form.Group>
 
-				{/* Repetir contraseña */} 
-				 <Form.Group as={Row}>
+				{/* Repetir contraseña */}
+				<Form.Group as={Row}>
 					<Form.Label column sm={2} htmlFor="repeatPassword">
 						Repetir Contraseña
 					</Form.Label>

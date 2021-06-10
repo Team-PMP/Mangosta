@@ -28,3 +28,14 @@ def get_all_users():
     print(all_users)
 
     return jsonify(serialized_users), 200
+
+@api.route('/user', methods=['POST'])
+def handle_create_user():
+    payload = request.get_json()
+    print(payload)
+    user = User(email=payload['email'],name=payload['name'],surname=payload['surname'],rrss=payload['rrss'],phone=payload['phone'],picture=payload['picture'],profesional=payload['profesional'],specialties=payload['specialties'])
+    
+    db.session.add(user)
+    db.session.commit()
+
+    return jsonify(user.serialize()),
