@@ -30,9 +30,9 @@ export const UserSignin = () => {
 			surname: surname,
 			email: email,
 			password: password,
-			repeatPassword: repeatPassword,
-			specialty: specialty,
-			services: services
+			// repeatPassword: repeatPassword,
+			// specialty: specialty,
+			// services: services
 		});
 
 		console.log(formData);
@@ -139,7 +139,7 @@ export const UserSignin = () => {
 				</Form.Group>
 
 				{/* Repetir contraseña */}
-				<Form.Group as={Row}>
+				{/* <Form.Group as={Row}>
 					<Form.Label column sm={2} htmlFor="repeatPassword">
 						Repetir Contraseña
 					</Form.Label>
@@ -153,7 +153,7 @@ export const UserSignin = () => {
 							onChange={event => setRepeatPassword(event.target.value)}
 						/>
 					</Col>
-				</Form.Group>
+				</Form.Group> */}
 
 				{/* Especialidad */}
 				{/* <Form.Group as={Row}>
