@@ -210,8 +210,13 @@ export const UserSignin = () => {
 				</Row>
 				<Row className="justify-content-center mt-4">
 					{/* Submit */}
-					<Button variant="primary" type="submit" className="align-items-center">
+                    <Button
+                     variant="primary"
+                      type="submit" 
+                      className="align-items-center"
+                      onClick={handleSubmit}>
 						Registrarse
+                        
 					</Button>
 				</Row>
 			</Form>
