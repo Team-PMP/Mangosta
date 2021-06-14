@@ -21,20 +21,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 				getActions().changeColor(0, "green");
 			},
 
-			getMessage: () => {
+			createUser: data => {
 				// fetching data from the backend
-				fetch(process.env.BACKEND_URL + "/api/hello")
+				fetch(process.env.BACKEND_URL + "/api/user", {
+					method: "POST",
+					body: JSON.stringify(data),
+					headers: {
+						"Content-Type": "application/json"
+					}
+				})
 					.then(resp => resp.json())
 					.then(data => setStore({ message: data.message }))
 					.catch(error => console.log("Error loading message from backend", error));
 			},
-			getMessage: () => {
-				// fetching data from the backend
-				fetch(process.env.BACKEND_URL + "a/user")
-					.then(resp => resp.json())
-					.then(data => setStore({ message: data.message }))
-					.catch(error => console.log("Error loading message from backend", error));
-			},
+
 			changeColor: (index, color) => {
 				//get the store
 				const store = getStore();
@@ -54,7 +54,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 };
 
 export default getState;
-
 // const dataTest = {
 // 	name: "name",
 // 	surname: "surname",
@@ -65,15 +64,4 @@ export default getState;
 // 	profesional: true
 // };
 
-// const testFetch = () => {
-// 	fetch("/user", {
-// 		method: "POST",
-// 		body: JSON.stringify(dataTest),
-// 		headers: {
-// 			"Content-Type": "application/json"
-// 		}
-// 	})
-// 		.then(res => console.log(res))
-// 		.then(json => console.log(json))
-// 		.catch(err => console.log(err));
 // };

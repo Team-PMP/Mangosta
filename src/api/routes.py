@@ -36,6 +36,8 @@ def get_all_users():
 def handle_create_user():
     payload = request.get_json()
     profesional = False
+    picture=""
+    phone=None
      # validación
     if payload is None:
         return "The request payload is null", 400
@@ -45,8 +47,10 @@ def handle_create_user():
         return 'Especificar email', 400
     if 'surname' not in payload:
         return 'Especificar surname', 400
-    if 'picture' not in payload:
-        return 'Especificar picture', 400
+    if 'picture' in payload:
+        picture= payload['picture'],
+    if 'phone' in payload:
+        phone= payload['phone'],
     if 'profesional' in payload:
         profesional = True
     if 'password' not in payload:
@@ -54,7 +58,7 @@ def handle_create_user():
         
        
     print(payload)
-    user = User(email=payload['email'],password=payload['password'],name=payload['name'],surname=payload['surname'],phone=payload['phone'],picture=payload['picture'],profesional=profesional)
+    user = User(email=payload['email'],password=payload['password'],name=payload['name'],surname=payload['surname'],phone=phone,picture=picture,profesional=profesional)
     
     db.session.add(user)
     db.session.commit()

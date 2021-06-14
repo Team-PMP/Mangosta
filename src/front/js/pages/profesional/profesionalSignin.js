@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Form, Col, Row, Container, Button } from "react-bootstrap";
+import { Context } from "../../store/appContext";
 
 export const ProfesionalSignin = () => {
+	const { store, actions } = useContext(Context);
 	const [name, setName] = useState("");
 	const [surname, setSurname] = useState("");
 	const [email, setEmail] = useState("");
@@ -27,6 +29,7 @@ export const ProfesionalSignin = () => {
 
 	const handleSubmit = evt => {
 		evt.preventDefault();
+
 		const data = {
 			name: name,
 			surname: surname,
@@ -36,6 +39,7 @@ export const ProfesionalSignin = () => {
 			services: services,
 			profesional: true
 		};
+		actions.createUser(data);
 	};
 
 	return (
