@@ -19,7 +19,6 @@ import { LoginUser } from "../loginUser/loginUser";
 
 import { useAuth0 } from "@auth0/auth0-react";
 import "./styles.css";
-import Doctor from "../../../img/doctor";
 
 const Navigation = () => {
 	const { isLoading, isAuthenticated, user } = useAuth0();
