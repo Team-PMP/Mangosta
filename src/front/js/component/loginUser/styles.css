@@ -1,6 +1,64 @@
-.userButton{
-    border: 1px solid black;
-    border-radius: 10px;
-    padding: 5px;
-    cursor: pointer;
+.botonUsuario{
+    margin-right: 2rem;
+}
+
+.modalBody{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 2rem;
+
+}
+.modalBody button{
+    border: 2px solid black;
+    margin: 1rem;
+}
+
+label{
+display: inline-block;
+width: 80px;
+margin-left: 25%;
+}
+.modalBody{
+    display: flex;
+    justify-content: center;
+    align-items: left;
+}
+.modalHeader{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 70px;
+    background-color: rgba(32, 29, 46, 0.753);
+}
+.modalTitle{
+    position: relative;
+    padding-top: 30px;
+    height: 50px;
+    color: white;
+    
+}
+
+.login-google{
+    width: 17rem;
+    left: 10%;
+    position: relative;
+}
+.accessButton{
+    background-color:rgba(213, 247, 197, 0.836);
+    color: black;
+    font-weight: 600;
+}
+.accessButton:hover{
+    background-color:rgba(84, 143, 56, 0.74);
+}
+.inputLogin{
+    text-align: center;
+    border-radius: 8px;
+}
+.botones{
+    display: flex;
+    justify-content: center;
 }

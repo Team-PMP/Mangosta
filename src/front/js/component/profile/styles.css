@@ -1,17 +1,25 @@
-.mini-profile{
-    width: 2.7rem;
-    height: 2.7rem;
-    margin-top: 5px;
-    border-radius: 999px;
-    border: 2px solid rgba(0, 0, 0, 0.644);
+.miniProfile{
     position: absolute;
-    right: 2rem;
-    
+    right: 4.5rem;
+    background-color: white;
+    border-radius: 99px;
+    top: 3px;
 }
 .display-small-container{
     display: block;
 }
-
+.dropMenu{
+    text-align: center;
+    transform: translateX(-40px);
+    font-size: 1.2rem;
+    letter-spacing: 1px; 
+}
+.photo{
+    width: 2.7rem;
+    height: 2.7rem;
+    border-radius: 99px;
+    border: 2px solid white;
+}
 .nav-profile-container{
     width: 30rem;
     display: flex;
