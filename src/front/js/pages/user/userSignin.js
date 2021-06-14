@@ -29,7 +29,7 @@ export const UserSignin = () => {
 			name: name,
 			surname: surname,
 			email: email,
-			password: password,
+			password: password
 			// repeatPassword: repeatPassword,
 			// specialty: specialty,
 			// services: services
@@ -210,13 +210,8 @@ export const UserSignin = () => {
 				</Row>
 				<Row className="justify-content-center mt-4">
 					{/* Submit */}
-                    <Button
-                     variant="primary"
-                      type="submit" 
-                      className="align-items-center"
-                      onClick={handleSubmit}>
+					<Button variant="primary" type="submit" className="align-items-center" onClick={handleSubmit}>
 						Registrarse
-                        
 					</Button>
 				</Row>
 			</Form>

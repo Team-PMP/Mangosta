@@ -11,12 +11,10 @@ export const ProfesionalSignin = () => {
 	const [services, setServices] = useState("");
 
 	// const [formData, setFormData] = useState({
-	// 	username: "",
 	// 	name: "",
 	// 	surname: "",
 	// 	email: "",
 	// 	password: "",
-	// 	repeatPassword: "",
 	// 	specialty: "",
 	// 	services: ""
 	// });
@@ -38,8 +36,6 @@ export const ProfesionalSignin = () => {
 			services: services,
 			profesional: true
 		};
-
-		console.log(data);
 	};
 
 	return (
