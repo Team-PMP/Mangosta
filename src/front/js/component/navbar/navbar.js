@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 //images
 import Logo from "../../../img/logo.png";
 import { AiFillHome } from "react-icons/ai";
+import { GiStethoscope } from "react-icons/gi";
+import { BiUser } from "react-icons/bi";
 import Spinner from "react-bootstrap/Spinner";
-//
 import { Profile } from "../profile/profile";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Button from "react-bootstrap/Button";
@@ -13,16 +14,34 @@ import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
+import { LoginUser } from "../loginUser/loginUser";
+// import { LoginProfesional } from "../loginProfesional/loginProfesional";
 
-import { LoginIcon } from "../login/login-icon";
-import { LogoutIcon } from "../logout/logout-icon";
 import { useAuth0 } from "@auth0/auth0-react";
-import UserMenu from "../userMenu/userMenu";
-
 import "./styles.css";
+import Doctor from "../../../img/doctor";
 
-export const Navigation = () => {
+const Navigation = () => {
 	const { isLoading, isAuthenticated, user } = useAuth0();
+	// const [showProfessionalLogin, setShowProfessionalLogin] = useState(false);
+	const [showUserLogin, setShowUserLogin] = useState(false);
+	const [userType, setUserType] = useState("user");
+
+	// const toggleProfessionalLogin = () => {
+	// 	setShowProfessionalLogin(!showProfessionalLogin);
+	// };
+	// const toggleUserLogin = () => {
+	// 	setShowUserLogin(!showUserLogin);
+	// };
+
+	const closeLoginModal = () => {
+		setShowUserLogin(false);
+	};
+	const openLoginModal = isProfessional => {
+		setShowUserLogin(true);
+		const userTypeName = isProfessional ? "professional" : "user";
+		setUserType(userTypeName);
+	};
 
 	return (
 		<>
@@ -54,11 +73,25 @@ export const Navigation = () => {
 						<Profile />
 					</Nav>
 					<Form inline>
-						{isLoading ? <Spinner animation="border" /> : null}
-						{isAuthenticated ? <></> : <LoginIcon />}
+						{isLoading && <Spinner className="spiner" animation="border" />}
+						{!isAuthenticated && (
+							<>
+								<Button variant="light" onClick={() => openLoginModal(true)} className="botonUsuario">
+									<GiStethoscope style={{ width: "1.8rem", height: "1.8rem" }} />
+									Soy Profesional
+								</Button>
+								<Button variant="light" onClick={() => openLoginModal(false)} className="botonUsuario">
+									<BiUser style={{ width: "1.8rem", height: "1.8rem" }} />
+									Soy Paciente
+								</Button>
+								<LoginUser userType={userType} show={showUserLogin} onHide={closeLoginModal} />
+							</>
+						)}
 					</Form>
 				</Navbar.Collapse>
 			</Navbar>
 		</>
 	);
 };
+
+export default Navigation;
