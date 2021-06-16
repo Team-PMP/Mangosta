@@ -12,7 +12,7 @@ export const Profile = () => {
 	return (
 		isAuthenticated && (
 			<Dropdown className="miniProfile">
-				<Dropdown.Toggle variant="secondary" id="dropdown-basic">
+				<Dropdown.Toggle variant="light" id="dropdown-basic">
 					<img src={user.picture} className="photo" alt={user.name} />
 				</Dropdown.Toggle>
 				<Dropdown.Menu className="dropMenu">
