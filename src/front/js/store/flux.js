@@ -27,7 +27,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(resp => resp.json())
 					.then(data => setStore({ message: data.message }))
 					.catch(error => console.log("Error loading message from backend", error));
-			},
+            },
+
+            //TODO
+            // userLogin: () =>{
+            //     fetch(process.env.BACKEND_URL + "/api/user")
+			// 		.then(resp => resp.json())
+			// 		.then(data => setStore({ message: data.message }))
+			// 		.catch(error => console.log("Error loading message from backend", error));
+            // },
 			changeColor: (index, color) => {
 				//get the store
 				const store = getStore();
