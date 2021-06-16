@@ -13,8 +13,6 @@ import { Servicios } from "./pages/servicios";
 
 import Navigation from "./component/navbar/navbar";
 import { Footer } from "./component/footer";
-import { ProfesionalSignin } from "./pages/profesional/profesionalSignin";
-import { UserSignin } from "./pages/user/userSignin";
 
 //create your first component
 const Layout = () => {
@@ -30,12 +28,6 @@ const Layout = () => {
 					<Switch>
 						<Route exact path="/">
 							<Home />
-						</Route>
-						<Route exact path="/user/userSignin">
-							<UserSignin />
-						</Route>
-						<Route exact path="/profesional/profesionalSignin">
-							<ProfesionalSignin />
 						</Route>
 						<Route exact path="/demo">
 							<Demo />
