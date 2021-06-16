@@ -1,8 +1,11 @@
 import React, { useContext } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 import { Context } from "../store/appContext";
 import "../../styles/home.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ReactBootstrap, { Button, Card, CardDeck, Carousel, Image, Container, Row, Col } from "react-bootstrap";
+
+import { Profile } from "../component/profile/profile";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
