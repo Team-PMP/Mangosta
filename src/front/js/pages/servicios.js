@@ -3,7 +3,6 @@ import ProfesionalImage from "../../img/profesionales.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Context } from "../store/appContext";
 import "../../styles/profesionales.scss";
-import "bootstrap/dist/css/bootstrap.min.css";
 import ReactBootstrap, { Button, Card, CardDeck, Image, Container, Row, Col } from "react-bootstrap";
 
 //Components

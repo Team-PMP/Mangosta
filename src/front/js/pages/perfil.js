@@ -23,7 +23,7 @@ export const Perfil = () => {
 					<img src={user.picture} className="picture" />
 					<div className="roles">
 						<div>
-							<input type="radio" id="huey" name="drone" value="huey" checked />
+							<input type="radio" id="huey" name="drone" value="huey" checked disabled="disabled" />
 							<label>Profesional</label>
 						</div>
 						<div>

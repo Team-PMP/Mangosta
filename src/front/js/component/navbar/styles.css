@@ -11,6 +11,11 @@
     font-size: 2rem;
     margin-left: 3rem; 
 }
+.spiner{
+    width: 20px;
+    height: 20px;
+    color: rgb(111, 223, 148);
+}
 
 .link{
     font-size: 1.6rem;
@@ -21,18 +26,17 @@
 }
 
 .dropwdown{
-    border: 1px solid black;
-    border-radius: 1rem;
-    background-color: rgba(188, 245, 161, 0.692);
+    border-radius: .8rem;
+    background-color: rgba(213, 247, 197, 0.836);
     width: 16rem;
     height: 3rem;
     padding: 0;
     line-height: 2rem;
+    
 }
 .main-button{
-    border: 1px solid black;
-    border-radius: 1rem;
-    background-color: rgba(188, 245, 161, 0.692);
+    border-radius: .8rem;
+    background-color: rgba(213, 247, 197, 0.836);
     width: 16rem;
     height: 3rem;
     padding: 0;
