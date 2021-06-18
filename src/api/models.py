@@ -22,10 +22,10 @@ class User(db.Model):
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(80), unique=False, nullable=False)
     name = db.Column(db.String(50), unique=False, nullable=False)
-    surname = db.Column(db.String(120), unique=True, nullable=False)
-    phone = db.Column(db.String(50), unique=True, nullable=True)
+    surname = db.Column(db.String(120), unique=False, nullable=False)
+    phone = db.Column(db.String(50), unique=True, nullable=False)
     picture = db.Column(db.String(120), nullable=True)
-    profesional = db.Column(db.Boolean(80), unique=False, nullable=False)
+    profesional = db.Column(db.Boolean, unique=False, nullable=False)
  
     posts = db.relationship('Post', lazy=True)
     services = db.relationship('Service', lazy=True)
