@@ -12,6 +12,8 @@ export const LoginUser = props => {
 	const { show, onHide, userType } = props;
 	let modalTitle = "";
 	let googleButton = <></>;
+	let userSignUpButton = <></>;
+	let professionalSignUpButton = <></>;
 
 	switch (userType) {
 		case "user":
@@ -21,9 +23,19 @@ export const LoginUser = props => {
 					<FcGoogle style={{ width: "1.8rem", height: "1.8rem" }} /> Inicia con Google
 				</button>
 			);
+			userSignUpButton = (
+				<Button variant="secondary" href="/user/userSignin">
+					Crear cuenta
+				</Button>
+			);
 			break;
 		case "professional":
 			modalTitle = "Acceso Profesional";
+			professionalSignUpButton = (
+				<Button variant="secondary" href="/profesional/profesionalSignin">
+					Crear cuenta
+				</Button>
+			);
 
 		default:
 			break;
@@ -47,7 +59,8 @@ export const LoginUser = props => {
 						<Button variant="secondary" className="accessButton">
 							Entrar
 						</Button>
-						<Button variant="secondary">Crear cuenta</Button>
+						{userSignUpButton}
+						{professionalSignUpButton}
 					</div>
 				</Modal.Body>
 			</Modal>
