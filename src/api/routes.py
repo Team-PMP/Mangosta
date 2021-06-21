@@ -21,7 +21,7 @@ def handle_hello():
     return jsonify(response_body), 200
 
 
-@api.route('/user', methods=['GET'])
+@api.route('/users', methods=['GET'])
 def get_all_users():
 
     all_users = User.query.all()
@@ -35,7 +35,7 @@ def get_all_users():
 
 
 # RUTAS PRIVADAS
-@api.route("/profile", methods=["GET"])
+@api.route("/profiles", methods=["GET"])
 def protected():
     # Accede a la identidad del usuario actual con get_jwt_identity
     current_user_id = get_jwt_identity()
@@ -65,7 +65,7 @@ def login():
 
 
 
-@api.route('/disease', methods=['GET'])
+@api.route('/diseases', methods=['GET'])
 def get_all_diseases():
 
     all_diseases = Disease.query.all()
@@ -80,7 +80,7 @@ def get_all_diseases():
 
 
 # end point usario
-@api.route('/user', methods=['POST'])
+@api.route('/users', methods=['POST'])
 def handle_create_user():
     payload = request.get_json()
     profesional = False
