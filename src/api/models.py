@@ -46,7 +46,6 @@ class User(db.Model):
             "email": self.email,
             "name": self.name,
             "surname": self.surname,
-            "rrss": self.rrss,
             "phone": self.phone,
             "picture": self.picture,
             "profesional": self.profesional,
