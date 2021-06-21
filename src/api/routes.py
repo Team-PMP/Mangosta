@@ -122,7 +122,7 @@ def protected():
 
 
 
-@api.route("/token", methods=["POST"])
+@api.route("/login", methods=["POST"])
 def create_token():
     username = request.json.get("username", None)
     password = request.json.get("password", None)
@@ -134,4 +134,4 @@ def create_token():
     
     # crea un nuevo token con el id de usuario dentro
     access_token = create_access_token(identity=user.id)
-    return jsonify({ "token": access_token, "user_id": user.id })
+    return jsonify({ "token": access_token, "user": user.serialize() })

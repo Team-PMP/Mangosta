@@ -36,7 +36,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			loginUser: data => {
-				fetch(process.env.BACKEND_URL + "/api/user")
+				fetch(process.env.BACKEND_URL + "/api/login")
 					.then(resp => {
 						if (resp.ok) resp.json();
 						else if (resp.status === 401) {
@@ -47,7 +47,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.then(data => {
 						// guarda tu token en el localStorage
-						// localStorage.setItem("jwt-token", data.token);
+						//localStorage.setItem("jwt-token", data.token);
 						console.log("Login satisfactorio");
 					})
 					.catch(error => console.error("There has been an uknown error", error));
