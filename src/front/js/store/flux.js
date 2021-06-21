@@ -2,17 +2,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			message: null,
-			user: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
+			professionals: [
+				
 			]
 		},
 		actions: {
@@ -21,17 +12,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 				getActions().changeColor(0, "green");
 			},
 
-			createUser: data => {
+			getProfessionals: data => {
 				// fetching data from the backend
-				fetch(process.env.BACKEND_URL + "/api/user", {
-					method: "POST",
-					body: JSON.stringify(data),
-					headers: {
-						"Content-Type": "application/json"
-					}
+				fetch(process.env.BACKEND_URL + "/users/professionals", {
+					method: "GET",
 				})
 					.then(resp => resp.json())
-					.then(data => setStore({ message: data.message }))
+					.then(data => setStore({ professionals: data }))
 					.catch(error => console.log("Error loading message from backend", error));
 			},
 

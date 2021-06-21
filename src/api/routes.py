@@ -33,6 +33,33 @@ def get_all_users():
 
     return jsonify(serialized_users), 200
 
+@api.route('/users/professionals', methods=['GET'])
+def get_professionals():
+    
+    professionals = User.query.filter_by(profesional= True).all()
+
+    serialized_professionals = []
+    for professional in professionals:
+        serialized_professionals.append(professional.serialize())
+    print(serialized_professionals)
+
+    return jsonify(serialized_professionals), 200
+
+@api.route("/login", methods=["POST"])
+def login():
+
+    payload = request.get_json()
+
+    user = User.query.filter_by(email=payload["email"], password=payload["password"]).first()
+    if user is None:
+        return jsonfiy({"error":"Invalid email or password"}), 401
+
+    access_token = create_access_token(identity=user.id)
+    return jsonify({"token": access_token, "user_id": user.id})
+
+
+
+
 
 # RUTAS PRIVADAS
 @api.route("/profiles", methods=["GET"])
@@ -49,19 +76,6 @@ def protected():
             "profesional": profesional,
             "specialties": specialties,}), 200
 
-
-
-@api.route("/login", methods=["POST"])
-def login():
-
-    payload = request.get_json()
-
-    user = User.query.filter_by(email=payload["email"], password=payload["password"]).first()
-    if user is None:
-        return jsonfiy({"error":"Invalid email or password"}), 401
-
-    access_token = create_access_token(identity=user.id)
-    return jsonify({"token": access_token, "user_id": user.id})
 
 
 
