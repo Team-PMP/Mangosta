@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Form, Col, Row, Container, Button } from "react-bootstrap";
+import { Context } from "../../store/appContext";
 
 export const UserSignin = () => {
+	const { store, actions } = useContext(Context);
 	const [username, setUsername] = useState("");
 	const [name, setName] = useState("");
 	const [surname, setSurname] = useState("");
@@ -24,19 +26,18 @@ export const UserSignin = () => {
 
 	const handleSubmit = evt => {
 		evt.preventDefault();
-		setFormData({
+
+		const data = {
 			username: username,
 			name: name,
 			surname: surname,
 			email: email,
 			password: password
-			// repeatPassword: repeatPassword,
-			// specialty: specialty,
-			// services: services
-		});
+		};
 
-		console.log(formData);
+		actions.createUser(data);
 	};
+
 	return (
 		<Container>
 			<Form className="mt-5" onSubmit={handleSubmit}>

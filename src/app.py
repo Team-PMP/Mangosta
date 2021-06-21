@@ -12,6 +12,7 @@ from api.routes import api
 from api.admin import setup_admin
 #from models import Person
 
+
 ENV = os.getenv("FLASK_ENV")
 static_file_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)), '../public/')
 app = Flask(__name__)

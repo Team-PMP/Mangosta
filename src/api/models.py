@@ -1,5 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
 
+
 db = SQLAlchemy()
 
 diseases_services = db.Table('diseases_services',
@@ -23,15 +24,14 @@ class User(db.Model):
     password = db.Column(db.String(80), unique=False, nullable=False)
     name = db.Column(db.String(50), unique=False, nullable=False)
     surname = db.Column(db.String(120), unique=False, nullable=False)
-    rrss = db.Column(db.String(80), nullable=True)
     phone = db.Column(db.String(50), unique=True, nullable=False)
     picture = db.Column(db.String(120), nullable=True)
-    profesional = db.Column(db.Boolean(80), unique=False, nullable=False)
+    profesional = db.Column(db.Boolean, unique=False, nullable=False)
  
     posts = db.relationship('Post', lazy=True)
     services = db.relationship('Service', lazy=True)
     comments = db.relationship('Comment', lazy=True)
-    """ diseases = db.relationship('Disease', lazy=True) """
+    diseases = db.relationship('Disease', lazy=True)
     specialties = db.relationship("Specialty", secondary=specialties_users, back_populates="users")
     
         
@@ -83,7 +83,7 @@ class Disease(db.Model):
     name = db.Column(db.String(50), unique=False, nullable=False)
     information = db.Column(db.Text, unique=False, nullable=False)
     image = db.Column(db.String(120),  nullable=True)
-    """ user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False) """
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
 
     posts = db.relationship('Post', lazy=True)
     services = db.relationship("Service",

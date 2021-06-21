@@ -35,6 +35,24 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(error => console.log("Error loading message from backend", error));
 			},
 
+			loginUser: data => {
+				fetch(process.env.BACKEND_URL + "/api/user")
+					.then(resp => {
+						if (resp.ok) resp.json();
+						else if (resp.status === 401) {
+							console.log("Invalid credentials");
+						} else if (resp.status === 400) {
+							console.log("Invalid email or password format");
+						} else throw Error("Uknon error");
+					})
+					.then(data => {
+						// guarda tu token en el localStorage
+						// localStorage.setItem("jwt-token", data.token);
+						console.log("Login satisfactorio");
+					})
+					.catch(error => console.error("There has been an uknown error", error));
+			},
+
 			changeColor: (index, color) => {
 				//get the store
 				const store = getStore();

@@ -54,6 +54,11 @@ margin-left: 25%;
 .accessButton:hover{
     background-color:rgba(84, 143, 56, 0.74);
 }
+.signupButton{
+    width: 9rem;
+    height: 2.5rem;
+    margin-top: 1rem;
+}
 .inputLogin{
     text-align: center;
     border-radius: 8px;

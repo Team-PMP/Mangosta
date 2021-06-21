@@ -7,6 +7,8 @@ from api.utils import generate_sitemap, APIException
 
 
 
+
+
 api = Blueprint('api', __name__)
 
 
@@ -31,7 +33,7 @@ def get_all_users():
 
     return jsonify(serialized_users), 200
 
-# end point usario
+# end point crear usario
 @api.route('/user', methods=['POST'])
 def handle_create_user():
     payload = request.get_json()
@@ -65,6 +67,9 @@ def handle_create_user():
 
     print ("end payload")
     return jsonify(user.serialize())
+
+
+
 
 # RUTAS PRIVADAS
 @api.route("/user", methods=["GET"])
@@ -114,6 +119,8 @@ def protected():
 
 #     print ("end payload")
 #     return jsonify(user.serialize()),
+
+
 
 @api.route("/token", methods=["POST"])
 def create_token():

@@ -46,7 +46,7 @@ const Navigation = () => {
 		<>
 			<Navbar className="navbar" expand="lg">
 				<Navbar.Brand href="/">
-					<AiFillHome style={{ width: "2rem", height: "2rem" }} />
+					<AiFillHome style={{ width: "2rem", height: "2rem" }} href="{{ url_for('main.profile') }}" />
 				</Navbar.Brand>
 				<Navbar.Toggle aria-controls="basic-navbar-nav" />
 				<Navbar.Collapse id="basic-navbar-nav" className="navbarCollapse">
