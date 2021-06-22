@@ -7,13 +7,17 @@ import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
 import injectContext from "./store/appContext";
 //
-/* import { Perfil } from "./pages/perfil"; */
-/* import { Profesionales } from "./pages/profesionales"; */
-import { Disease } from "./pages/disease.jsx";
-/* import { Servicios } from "./pages/servicios"; */
 
-import { Navigation } from "./component/navbar/navbar";
+import { Disease } from "./pages/disease.jsx";
+
+import { Perfil } from "./pages/perfil";
+import { Profesionales } from "./pages/profesionales";
+import { Servicios } from "./pages/servicios";
+
+import Navigation from "./component/navbar/navbar";
 import { Footer } from "./component/footer";
+import { ProfesionalSignin } from "./pages/profesional/profesionalSignin";
+import { UserSignin } from "./pages/user/userSignin";
 
 //create your first component
 const Layout = () => {
@@ -30,6 +34,12 @@ const Layout = () => {
 						<Route exact path="/">
 							<Home />
 						</Route>
+						<Route exact path="/user/userSignin">
+							<UserSignin />
+						</Route>
+						<Route exact path="/profesional/profesionalSignin">
+							<ProfesionalSignin />
+						</Route>
 						<Route exact path="/demo">
 							<Demo />
 						</Route>
@@ -39,12 +49,12 @@ const Layout = () => {
 						{/* <Route exact path="/perfil">
 							<Perfil />
 						</Route> */}
-						{/* <Route exact path="/profesionales">
+						<Route exact path="/profesionales">
 							<Profesionales />
 						</Route>
 						<Route exact path="/servicios">
 							<Servicios />
-						</Route> */}
+						</Route>
 						<Route exact path="/single/:theid">
 							<Single />
 						</Route>
@@ -54,7 +64,7 @@ const Layout = () => {
 							</h1>
 						</Route>
 					</Switch>
-					{/* <Footer /> */}
+					<Footer />
 				</ScrollToTop>
 			</BrowserRouter>
 		</div>

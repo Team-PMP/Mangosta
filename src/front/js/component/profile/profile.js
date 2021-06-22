@@ -1,18 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
+import Spinner from "react-bootstrap/Spinner";
+import "./styles.css";
+import Dropdown from "react-bootstrap/Dropdown";
 
 export const Profile = () => {
 	const { user, isAuthenticated, isLoading } = useAuth0();
+	console.log("user info", user);
 
-	if (isLoading) {
-		return <div>Loading...</div>;
-	}
+	const { logout } = useAuth0();
 	return (
 		isAuthenticated && (
-			<div>
-				<img src={user.picture} alt={user.name} />
-				<h2>{user.name}</h2>
-			</div>
+			<Dropdown className="miniProfile">
+				<Dropdown.Toggle variant="secondary" id="dropdown-basic">
+					<img src={user.picture} className="photo" alt={user.name} />
+				</Dropdown.Toggle>
+				<Dropdown.Menu className="dropMenu">
+					<Dropdown.Item href="/perfil">Perfil</Dropdown.Item>
+					<Dropdown.Item onClick={() => logout({ returnTo: window.location.origin })}>
+						Cerrar sesión
+					</Dropdown.Item>
+				</Dropdown.Menu>
+			</Dropdown>
 		)
 	);
 };
