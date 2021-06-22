@@ -4,22 +4,23 @@ import { Context } from "../store/appContext";
 import "../../styles/home.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ReactBootstrap, { Button, Card, CardDeck, Carousel, Image, Container, Row, Col } from "react-bootstrap";
-
+import DoctorHome from "../../img/doctor-home.png";
+import Logo from "../../img/logo.png";
 import { Profile } from "../component/profile/profile";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
 
 	return (
-		<>
+		<div>
 			{/* JUMBOTRON */}
 
-			<Card className="bg-dark text-white">
+			{/* <Card className="text-white">
 				<Card.Img
 					src="https://img.freepik.com/vector-gratis/fondo-innovacion-medica-patron-icono-salud_115579-738.jpg?size=626&ext=jpg"
 					alt="Card image"
 				/>
-				<Card.ImgOverlay>
+				<Card.ImgOverlay styles={{ marginTop: "100px" }}>
 					<div className="Tittle">EL GOOGLE DE LAS ENFERMEDADES AUTOINMUNES</div>
 					<div className="Text">
 						<Card.Text>
@@ -39,7 +40,28 @@ export const Home = () => {
 						</Card.Text>
 					</div>
 				</Card.ImgOverlay>
-			</Card>
+			</Card> */}
+
+			<div className="Tittle" style={{ paddingTop: "100px" }}>
+				EL GOOGLE DE LAS ENFERMEDADES AUTOINMUNES
+			</div>
+			<div className="Text">
+				<Card.Text>
+					<br /> Una red social que acerca los profesionales
+					<br /> a los que estan en búsqueda de ayuda
+					<br />
+					tan valiosa como la suya.
+				</Card.Text>
+				<Card.Text>
+					Nos encargamos que todos nuestros usuarios
+					<br /> ya sea profesional o paciente,
+					<br /> tenga un trato rapido, eficaz y satisfactorio.
+				</Card.Text>
+				<Card.Text>
+					Disfruta de todas nuestras ventajas.
+					<br /> Conectamos salud.
+				</Card.Text>
+			</div>
 
 			{/* HEADER */}
 			<div className="container-fluid">
@@ -125,6 +147,6 @@ export const Home = () => {
 					</Carousel>
 				</div>
 			</div>
-		</>
+		</div>
 	);
 };

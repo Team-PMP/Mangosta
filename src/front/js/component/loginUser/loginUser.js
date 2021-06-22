@@ -24,17 +24,25 @@ export const LoginUser = props => {
 				</button>
 			);
 			userSignUpButton = (
-				<Button variant="secondary" href="/user/userSignin">
+				<button className="sign-button" href="/user/userSignin">
+					<span />
+					<span />
+					<span />
+					<span />
 					Crear cuenta
-				</Button>
+				</button>
 			);
 			break;
 		case "professional":
 			modalTitle = "Acceso Profesional";
 			professionalSignUpButton = (
-				<Button variant="secondary" href="/profesional/profesionalSignin">
+				<button className="sign-button" href="/profesional/profesionalSignin">
+					<span />
+					<span />
+					<span />
+					<span />
 					Crear cuenta
-				</Button>
+				</button>
 			);
 
 		default:
@@ -43,22 +51,28 @@ export const LoginUser = props => {
 
 	return (
 		<>
-			<Modal show={show} onHide={onHide}>
-				<Modal.Header closeButton className="modalHeader">
-					<Modal.Title className="modalTitle">{modalTitle}</Modal.Title>
-				</Modal.Header>
-				<Modal.Body className="modalBody">
-					<label>
-						<input type="text" placeholder="Nombre" className="inputLogin" />
-					</label>
-					<label>
-						<input type="password" placeholder="Contraseña" className="inputLogin" />
-					</label>
+			<Modal show={show} onHide={onHide} className="modal">
+				<Modal.Body className="login-box" styles={{ padding: "0" }}>
+					<Modal.Header>
+						<Modal.Title className="login-head">{modalTitle}</Modal.Title>
+					</Modal.Header>
+					<div className="user-box">
+						<input type="text" className="input-login" />
+						<label className="input-text">Email</label>
+					</div>
+					<div className="user-box">
+						<input type="password" className="input-login" />
+						<label className="input-text">Contraseña</label>
+					</div>
 					{googleButton}
 					<div className="botones">
-						<Button variant="secondary" className="accessButton">
+						<button className="login-button">
+							<span />
+							<span />
+							<span />
+							<span />
 							Entrar
-						</Button>
+						</button>
 						{userSignUpButton}
 						{professionalSignUpButton}
 					</div>

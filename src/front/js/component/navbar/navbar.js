@@ -50,7 +50,7 @@ const Navigation = () => {
 				</Navbar.Brand>
 				<Navbar.Toggle aria-controls="basic-navbar-nav" />
 				<Navbar.Collapse id="basic-navbar-nav" className="navbarCollapse">
-					<Nav className="mr-auto ">
+					<Nav className="mr-auto drop-menu ">
 						<NavDropdown className="dropwdown" title="Enfermedades" id="basic-nav-dropdown">
 							<NavDropdown.Item className="link" href="#action/3.1">
 								Enfermedad de Crohn
@@ -71,22 +71,22 @@ const Navigation = () => {
 						</Nav.Link>
 						<Profile />
 					</Nav>
-					<Form inline>
+					<div inline>
 						{isLoading && <Spinner className="spiner" animation="border" />}
 						{!isAuthenticated && (
 							<>
-								<Button variant="light" onClick={() => openLoginModal(true)} className="botonUsuario">
+								<button onClick={() => openLoginModal(true)} className="botonUsuario">
 									<GiStethoscope style={{ width: "1.8rem", height: "1.8rem" }} />
 									Soy Profesional
-								</Button>
-								<Button variant="light" onClick={() => openLoginModal(false)} className="botonUsuario">
+								</button>
+								<button onClick={() => openLoginModal(false)} className="botonUsuario">
 									<BiUser style={{ width: "1.8rem", height: "1.8rem" }} />
 									Soy Paciente
-								</Button>
+								</button>
 								<LoginUser userType={userType} show={showUserLogin} onHide={closeLoginModal} />
 							</>
 						)}
-					</Form>
+					</div>
 				</Navbar.Collapse>
 			</Navbar>
 		</>
