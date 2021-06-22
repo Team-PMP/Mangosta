@@ -78,6 +78,15 @@ def get_all_diseases():
     return jsonify(serialized_diseases), 200
 
 
+    
+@api.route('/disease/<int:id>', methods=['GET'])
+def get_disease(id):
+    
+    disease = Disease.query.get(id)
+    serialized_disease = disease.serialize()
+    
+    return jsonify(serialized_disease), 200
+
 
 # end point usario
 @api.route('/users', methods=['POST'])

@@ -30,7 +30,7 @@ class User(db.Model):
     posts = db.relationship('Post', lazy=True)
     services = db.relationship('Service', lazy=True)
     comments = db.relationship('Comment', lazy=True)
-    diseases = db.relationship('Disease', lazy=True)
+    """ diseases = db.relationship('Disease', lazy=True) """
     specialties = db.relationship("Specialty", secondary=specialties_users, back_populates="users")
     
         
@@ -81,7 +81,7 @@ class Disease(db.Model):
     name = db.Column(db.String(50), unique=False, nullable=False)
     information = db.Column(db.Text, unique=False, nullable=False)
     image = db.Column(db.String(120),  nullable=True)
-    user_id = db.Column(db.Integer, db.ForeignKey("user.id")) 
+    """  user_id = db.Column(db.Integer, db.ForeignKey("user.id"))  """
 
     posts = db.relationship('Post', lazy=True)
     services = db.relationship("Service",

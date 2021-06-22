@@ -7,6 +7,9 @@ import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
 import injectContext from "./store/appContext";
 //
+
+import { Disease } from "./pages/disease.jsx";
+
 import { Perfil } from "./pages/perfil";
 import { Profesionales } from "./pages/profesionales";
 import { Servicios } from "./pages/servicios";
@@ -40,9 +43,12 @@ const Layout = () => {
 						<Route exact path="/demo">
 							<Demo />
 						</Route>
-						<Route exact path="/perfil">
-							<Perfil />
+						<Route exact path="/disease/:id">
+							<Disease />
 						</Route>
+						{/* <Route exact path="/perfil">
+							<Perfil />
+						</Route> */}
 						<Route exact path="/profesionales">
 							<Profesionales />
 						</Route>
@@ -58,7 +64,7 @@ const Layout = () => {
 							</h1>
 						</Route>
 					</Switch>
-					{/* <Footer /> */}
+					<Footer />
 				</ScrollToTop>
 			</BrowserRouter>
 		</div>
