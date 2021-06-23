@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import PropTypes from "prop-types";
 import "./styles.css";
 import Button from "react-bootstrap/Button";
@@ -6,6 +6,7 @@ import Modal from "react-bootstrap/Modal";
 //import LoginGoogle from "../login/loginGoogle";
 import { useAuth0 } from "@auth0/auth0-react";
 import { FcGoogle } from "react-icons/fc";
+import { Context } from "../../store/appContext";
 
 export const LoginUser = props => {
 	const { loginWithPopup, loginWithRedirect } = useAuth0();
@@ -14,6 +15,20 @@ export const LoginUser = props => {
 	let googleButton = <></>;
 	let userSignUpButton = <></>;
 	let professionalSignUpButton = <></>;
+	const { store, actions } = useContext(Context);
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
+
+	const loginSubmit = evt => {
+		evt.preventDefault();
+
+		const data = {
+			email: email,
+			password: password
+		};
+
+		actions.loginUser(data);
+	};
 
 	switch (userType) {
 		case "user":
@@ -66,7 +81,7 @@ export const LoginUser = props => {
 					</div>
 					{googleButton}
 					<div className="botones">
-						<button className="login-button">
+						<button className="login-button" onClick={loginSubmit}>
 							<span />
 							<span />
 							<span />

@@ -22,16 +22,8 @@ import "./styles.css";
 
 const Navigation = () => {
 	const { isLoading, isAuthenticated, user } = useAuth0();
-	// const [showProfessionalLogin, setShowProfessionalLogin] = useState(false);
 	const [showUserLogin, setShowUserLogin] = useState(false);
 	const [userType, setUserType] = useState("user");
-
-	// const toggleProfessionalLogin = () => {
-	// 	setShowProfessionalLogin(!showProfessionalLogin);
-	// };
-	// const toggleUserLogin = () => {
-	// 	setShowUserLogin(!showUserLogin);
-	// };
 
 	const closeLoginModal = () => {
 		setShowUserLogin(false);
