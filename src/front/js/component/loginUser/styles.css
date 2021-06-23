@@ -282,6 +282,10 @@ margin-left: 25%;
   border: none;
   margin-left: 20px;
 }
+.sign-button a {
+    text-decoration: none;
+    color: inherit;
+}
 
 .sign-button:hover {
   background: #f46f03;

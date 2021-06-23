@@ -39,24 +39,24 @@ export const LoginUser = props => {
 				</button>
 			);
 			userSignUpButton = (
-				<button className="sign-button" href="/user/userSignin">
+				<button className="sign-button">
 					<span />
 					<span />
 					<span />
 					<span />
-					Crear cuenta
+					<a href="/user/userSignin">Crear cuenta</a>
 				</button>
 			);
 			break;
 		case "professional":
 			modalTitle = "Acceso Profesional";
 			professionalSignUpButton = (
-				<button className="sign-button" href="/profesional/profesionalSignin">
+				<button className="sign-button">
 					<span />
 					<span />
 					<span />
 					<span />
-					Crear cuenta
+					<a href="/profesional/profesionalSignin">Crear cuenta</a>
 				</button>
 			);
 
