@@ -56,7 +56,7 @@ def protected():
 @api.route("/login", methods=["POST"])
 def login():
 
-    payload = request.get_json()
+    payload = request.get_json(force=True)
     print("payload", payload)
 
     user = User.query.filter_by(email=payload["email"], password=payload["password"]).first()
