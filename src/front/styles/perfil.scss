@@ -1,119 +1,38 @@
-.container{
-    width: 30rem;
-    height: 100%;
-    border: 3px solid rgba(0, 0, 0, 0.37);
-    border-radius: 15px;
+.container-profile{
+    width: 35rem;
+    height: 35rem;
+    // border: 3px solid rgba(0, 0, 0, 0.37);
+    border-radius: 10px;
     margin-top:  4rem;
     margin-bottom: 4rem;
     z-index: 10;
     position: relative;
+    box-shadow: 2px 5px 5px 5px rgba(149, 218, 236, 0.582);
+
+
+
+    .perfil-div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+
+        span{
+            padding: 0.5rem;
+        }
+
+        .profile-photo{
+            height: 6rem;
+            width: 6rem;
+            border-radius: 999px;
+
+        }
+        span input{
+            margin-left: 1rem;
+
+        }
+    }
     
-}
-.picture{
-    width: 8rem;
-    height: 8rem;
-    border-radius: 1rem;
-    border: 1px solid rgba(0, 0, 0, 0.733);
-    margin-top: 1rem;
-    
-}
-.headerInfo{
-    display: flex;
-    
-
-}
-.roles{
-    margin-top: 3rem;
-    margin-left: 5rem;
-    font-weight: 600;
-    
-}
-.info{
-    display: flex;
-    flex-direction: column;
-   
-}
-.info span {
-    margin-top: 3rem;
-    font-size: 18px;
-    color: black;
-    font-weight: 400;
-    border-radius: 10px;
-    
-}
-
-
-.boton{
-    display: flex;
-    justify-content: center;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-}
-.boton button{
-    width: 6rem;
-    background-color: rgba(62, 212, 62, 0.493);
-    
-}
-
-.roles input{
-    width: 15px;
-    height: 15px;
-
-    cursor: pointer;
-    
-}
-.roles input:checked ~ .checkmark {
-  background-color: rgb(42, 224, 87);
-}
-
-.pestañaFavoritos{
-
-    width: 5rem;
-    height: 2rem;
-    border: 2px solid rgba(0, 0, 0, 0.37);
-    transform: translateY(-2.2rem);
-    background-color: white;
-    z-index: -1;
-    text-align: center;
-    padding-top: .2rem;
-    border-top-left-radius: 1rem;
-    border-top-right-radius: 1rem;
-    position: absolute;
-    border-bottom: 0px;
-    margin-left: 6rem;
-    
-}
-
-.pestañaFavoritos:hover{
-    font-weight: 500;
-    cursor: pointer;
-}
-
-.pestañaPerfil{
-
-    width: 5rem;
-    height: 2rem;
-    border: 2px solid rgba(0, 0, 0, 0.37);
-    transform: translateY(-2.2rem);
-    background-color: white;
-    z-index: -1;
-    text-align: center;
-    padding-top: .2rem;
-    border-top-left-radius: 1rem;
-    border-top-right-radius: 1rem;
-    position: absolute;
-    border-bottom: 0px;
-    
-}
-
-.pestañaPerfil:hover{
-    font-weight: 500;
-    cursor: pointer;
-}
-
-.active{
-    font-weight: 600;
-
 }
 
 
@@ -126,18 +45,4 @@
     width: 90%;
 }
 
-
-.roles{
-    margin-top: 3rem;
-    margin-left: 2rem;
-    font-size: .8rem;  
-}
-
-.info span {
-    margin-top: 3rem;
-    font-size: 1.6rem;
-    color: black;
-    font-weight: 600;
-    border-radius: 10px;
-}
 }

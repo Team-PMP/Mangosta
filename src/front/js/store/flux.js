@@ -1,19 +1,11 @@
 const getState = ({ getStore, getActions, setStore }) => {
+	const token = localStorage.getItem("token");
 	return {
 		store: {
 			message: null,
-			user: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			],
+			user: [],
+			token: token,
+			profile: [],
 			diseases: [],
 			currentDisease: {}
 		},
@@ -32,8 +24,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 						"Content-Type": "application/json"
 					}
 				})
-					.then(resp => resp.json())
-					.then(data => setStore({ message: data.message }))
+					.then(resp => {
+						if (resp.ok) {
+							window.location.href = "/";
+						}
+						return response.json();
+					})
+					.then(data => {
+						setStore({ message: data.message });
+						alert("usuario creado");
+					})
 					.catch(error => console.log("Error loading message from backend", error));
 			},
 			getAllDiseases: () => {
@@ -56,7 +56,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			loginUser: data => {
-				console.log(data);
 				fetch(process.env.BACKEND_URL + "/api/login", {
 					method: "POST",
 					body: JSON.stringify(data),
@@ -66,17 +65,53 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 					.then(resp => {
 						console.log(resp);
-						if (resp.ok) return resp.json();
-						else if (resp.status === 401) {
+						if (resp.ok) {
+							window.location.href = "/";
+							return resp.json();
+						} else if (resp.status === 401) {
 							console.log("Invalid credentials");
 						}
 					})
 					.then(data => {
 						// guarda tu token en el localStorage
 						localStorage.setItem("jwt-token", data.token);
-						console.log("Login satisfactorio");
+						console.log("Login Done");
+						// console.log("Login satisfactorio");
+						setStore({ user: data });
+						setStore({ token: json.token });
+						console.log(token);
 					})
 					.catch(error => console.error("There has been an uknown error", error));
+			},
+			logOut() {
+				localStorage.removeItem("jwt-token");
+				setStore({ token: null });
+				console.log("token removed");
+			},
+
+			getcurrentUser: data => {
+				const store = getStore();
+				const endpoint = process.env.BACKEND_URL + "/api/profiles";
+				const config = {
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: `${store.token}`,
+						cors: "no-cors"
+					}
+				};
+				fetch(endpoint, config)
+					.then(response => {
+						if (!response.ok) {
+							// window.location.href = "/";
+							console.log("successful fecth profiles");
+						}
+						return response.json();
+					})
+					.then(json => {
+						setStore({ user: data });
+						console.log("user data:", store.user);
+					});
 			},
 
 			changeColor: (index, color) => {
