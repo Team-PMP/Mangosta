@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Context } from "../store/appContext";
 import "../../styles/home.scss";
@@ -9,6 +9,7 @@ import { Profile } from "../component/profile/profile";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
+	const token = localStorage.getItem("jwt-token");
 
 	return (
 		<>
@@ -46,6 +47,8 @@ export const Home = () => {
 				<div className="col-10 header">
 					<h1>¿Nuevo en Autodoctor?</h1>
 					<p>Conecta con los mejores profesionales y la mejor comunidad en unos sencillos pasos</p>
+					{token && <h1>TOKEN EXISTE</h1>}
+					{!token && <h1>TOKEN NO EXISTE</h1>}
 				</div>
 
 				{/* BODY-CARDS */}
@@ -65,6 +68,7 @@ export const Home = () => {
 								variant="top"
 								src="https://es-static.z-dn.net/files/d74/0ec77e9c549e94effa17353fba8be215.png"
 							/>
+
 							<Card.Body>
 								<Card.Text className="text-info">
 									Encuentra el profesional que más se adapte a ti.

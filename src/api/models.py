@@ -31,7 +31,7 @@ class User(db.Model):
     posts = db.relationship('Post', lazy=True)
     services = db.relationship('Service', lazy=True)
     comments = db.relationship('Comment', lazy=True)
-    """ diseases = db.relationship('Disease', lazy=True) """
+    # diseases = db.relationship('Disease', lazy=True) 
     specialties = db.relationship("Specialty", secondary=specialties_users, back_populates="users")
     
         

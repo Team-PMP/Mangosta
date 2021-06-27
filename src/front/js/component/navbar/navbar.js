@@ -28,10 +28,12 @@ import "./styles.css";
 
 const Navigation = () => {
 	const { isLoading, isAuthenticated, user } = useAuth0();
-	// const [showProfessionalLogin, setShowProfessionalLogin] = useState(false);
 	const [showUserLogin, setShowUserLogin] = useState(false);
 	const [userType, setUserType] = useState("user");
 	const { store, actions } = useContext(Context);
+	/* token*/
+
+	const token = localStorage.getItem("jwt-token");
 	useEffect(() => {
 		actions.getAllDiseases();
 	}, []);
@@ -47,12 +49,6 @@ const Navigation = () => {
 			</NavDropdown.ItemText>
 		);
 	});
-	// const toggleProfessionalLogin = () => {
-	// 	setShowProfessionalLogin(!showProfessionalLogin);
-	// };
-	// const toggleUserLogin = () => {
-	// 	setShowUserLogin(!showUserLogin);
-	// };
 
 	const closeLoginModal = () => {
 		setShowUserLogin(false);
@@ -85,7 +81,7 @@ const Navigation = () => {
 					</Nav>
 					<Form inline>
 						{isLoading && <Spinner className="spiner" animation="border" />}
-						{!isAuthenticated && (
+						{!token && (
 							<>
 								<Button variant="light" onClick={() => openLoginModal(true)} className="botonUsuario">
 									<GiStethoscope style={{ width: "1.8rem", height: "1.8rem" }} />

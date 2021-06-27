@@ -5,6 +5,9 @@ from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models import db, User, Disease, Post, Service, Comment, Specialty
 from api.utils import generate_sitemap, APIException
 from flask_jwt_extended import create_access_token
+#
+from flask_jwt_extended import jwt_required
+from flask_jwt_extended import get_jwt_identity
 
 
 
@@ -37,19 +40,33 @@ def get_all_users():
 
 
 # RUTAS PRIVADAS
-@api.route("/profiles", methods=["GET"])
-def protected():
-    # Accede a la identidad del usuario actual con get_jwt_identity
-    current_user_id = get_jwt_identity()
-    user = User.filter.get(current_user_id)
+
+# @api.route("/profiles", methods=["GET"])
+# def protected():
+#     # Accede a la identidad del usuario actual con get_jwt_identity
+#     current_user_id = get_jwt_identity()
+#     user = User.filter.get(current_user_id)
     
+#     return jsonify({"email": email,
+#             "name": name,
+#             "surname": surname,
+#             "phone": phone,
+#             "picture": picture,
+#             "profesional": profesional,
+#             "specialties": specialties,}), 200
+
+@api.route('/profiles', methods=['GET'])
+@jwt_required()
+def handle_profile():
+    user_email = get_jwt_identity()
+    user= User.get_user_by_email(user_email)
     return jsonify({"email": email,
-            "name": name,
-            "surname": surname,
-            "phone": phone,
-            "picture": picture,
-            "profesional": profesional,
-            "specialties": specialties,}), 200
+             "name": name,
+             "surname": surname,
+             "phone": phone,
+             "picture": picture,
+             "profesional": profesional,
+             "specialties": specialties,}), 200
 
 
 
