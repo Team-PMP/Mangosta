@@ -8,6 +8,8 @@ from flask_jwt_extended import create_access_token
 
 
 
+
+
 api = Blueprint('api', __name__)
 
 
@@ -54,14 +56,15 @@ def protected():
 @api.route("/login", methods=["POST"])
 def login():
 
-    payload = request.get_json()
+    payload = request.get_json(force=True)
+    print("payload", payload)
 
     user = User.query.filter_by(email=payload["email"], password=payload["password"]).first()
     if user is None:
-        return jsonfiy({"error":"Invalid email or password"}), 401
-
+        return jsonify({"error":"Invalid email or password"}), 401
+    print("user",user)
     access_token = create_access_token(identity=user.id)
-    return jsonify({"token": access_token, "user_id": user.id})
+    return jsonify({"token": access_token, "user": user.serialize() })
 
 
 

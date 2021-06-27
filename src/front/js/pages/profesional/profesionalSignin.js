@@ -12,21 +12,6 @@ export const ProfesionalSignin = () => {
 	const [specialty, setSpecialty] = useState("");
 	const [services, setServices] = useState("");
 
-	// const [formData, setFormData] = useState({
-	// 	name: "",
-	// 	surname: "",
-	// 	email: "",
-	// 	password: "",
-	// 	specialty: "",
-	// 	services: ""
-	// });
-
-	// const handleChange = evt => {
-	// 	setFormData({
-	// 		[evt.target.name]: evt.target.value
-	// 	});
-	// };
-
 	const handleSubmit = evt => {
 		evt.preventDefault();
 
@@ -45,36 +30,6 @@ export const ProfesionalSignin = () => {
 	return (
 		<Container>
 			<Form className="mt-5" onSubmit={handleSubmit}>
-				{/* Tipo de usuario
-				<fieldset>
-					<Form.Group as={Row} className="align-items-center">
-						<Form.Label as="legend" column sm={2}>
-							Tipo de Usuario
-						</Form.Label>
-						<Row sm={10} className="ml-3">
-							<Form.Check type="radio" label="Profesional" name="typeOfUser" value="Pro" />
-							<Form.Check type="radio" label="Usuario" name="typeOfUser" value="U" className="ml-4" />
-						</Row>
-					</Form.Group>
-				</fieldset> */}
-
-				{/* Nombre de usuario */}
-				{/* <Form.Group as={Row}>
-					<Form.Label column sm={2} htmlFor="username">
-						Nombre de Usuario
-					</Form.Label>
-					<Col sm={10}>
-						<Form.Control
-							type="text"
-							placeholder="Nombre de Usuario"
-							name="username"
-							id="username"
-							value={username}
-							onChange={event => setUsername(event.target.value)}
-						/>
-					</Col>
-				</Form.Group> */}
-
 				{/* Nombre */}
 				<Form.Group as={Row}>
 					<Form.Label column sm={2} htmlFor="name">
