@@ -1,19 +1,13 @@
 const getState = ({ getStore, getActions, setStore }) => {
+	const token = localStorage.getItem("token");
 	return {
 		store: {
 			message: null,
-			user: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+			user: [],
+			token: token,
+			profile: [],
+			diseases: [],
+			currentDisease: {}
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -23,16 +17,101 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			createUser: data => {
 				// fetching data from the backend
-				fetch(process.env.BACKEND_URL + "/api/user", {
+				fetch(process.env.BACKEND_URL + "/api/users", {
 					method: "POST",
 					body: JSON.stringify(data),
 					headers: {
 						"Content-Type": "application/json"
 					}
 				})
-					.then(resp => resp.json())
-					.then(data => setStore({ message: data.message }))
+					.then(resp => {
+						if (resp.ok) {
+							window.location.href = "/";
+						}
+						return response.json();
+					})
+					.then(data => {
+						setStore({ message: data.message });
+						alert("usuario creado");
+					})
 					.catch(error => console.log("Error loading message from backend", error));
+			},
+			getAllDiseases: () => {
+				// fetching data from the backend
+				fetch(`${process.env.BACKEND_URL}/api/diseases`, {
+					method: "GET"
+				})
+					.then(resp => resp.json())
+					.then(data => setStore({ diseases: data }))
+					.catch(error => console.log("Error loading message from backend", error));
+			},
+			getCurrentDisease: id => {
+				// fetching data from the backend
+				fetch(`${process.env.BACKEND_URL}/api/disease/${id}`, {
+					method: "GET"
+				})
+					.then(resp => resp.json())
+					.then(data => setStore({ currentDisease: data }))
+					.catch(error => console.log("Error loading message from backend", error));
+			},
+
+			loginUser: data => {
+				fetch(process.env.BACKEND_URL + "/api/login", {
+					method: "POST",
+					body: JSON.stringify(data),
+					header: {
+						"Content-Type": "application/json"
+					}
+				})
+					.then(resp => {
+						console.log(resp);
+						if (resp.ok) {
+							window.location.href = "/";
+							return resp.json();
+						} else if (resp.status === 401) {
+							console.log("Invalid credentials");
+						}
+					})
+					.then(data => {
+						// guarda tu token en el localStorage
+						localStorage.setItem("jwt-token", data.token);
+						console.log("Login Done");
+						// console.log("Login satisfactorio");
+						setStore({ user: data });
+						setStore({ token: json.token });
+						console.log(token);
+					})
+					.catch(error => console.error("There has been an uknown error", error));
+			},
+			logOut() {
+				localStorage.removeItem("jwt-token");
+				setStore({ token: null });
+				console.log("token removed");
+			},
+
+			getcurrentUser: data => {
+				const store = getStore();
+				const endpoint = process.env.BACKEND_URL + "/api/profiles";
+				const config = {
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: `${store.token}`,
+						cors: "no-cors"
+					}
+				};
+				fetch(endpoint, config)
+					.then(response => {
+						if (!response.ok) {
+							// window.location.href = "/";
+							console.log("successful fecth profiles");
+						}
+						return response.json();
+					})
+					.then(json => {
+						setStore({ user: data });
+						console.log("user data:", store.user);
+					});
 			},
 
 			changeColor: (index, color) => {

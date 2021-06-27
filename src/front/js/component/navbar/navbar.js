@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 //images
 import Logo from "../../../img/logo.png";
 import { AiFillHome } from "react-icons/ai";
+import Spinner from "react-bootstrap/Spinner";
+//
 import { GiStethoscope } from "react-icons/gi";
 import { BiUser } from "react-icons/bi";
-import Spinner from "react-bootstrap/Spinner";
 import { Profile } from "../profile/profile";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Button from "react-bootstrap/Button";
@@ -14,6 +15,11 @@ import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
+import { Context } from "../../store/appContext";
+/* import { LoginIcon } from "../login/login-icon"; */
+/* import { LogoutIcon } from "../logout/logout-icon"; */
+
+/* import UserMenu from "../userMenu/userMenu"; */
 import { LoginUser } from "../loginUser/loginUser";
 // import { LoginProfesional } from "../loginProfesional/loginProfesional";
 
@@ -24,6 +30,25 @@ const Navigation = () => {
 	const { isLoading, isAuthenticated, user } = useAuth0();
 	const [showUserLogin, setShowUserLogin] = useState(false);
 	const [userType, setUserType] = useState("user");
+	const { store, actions } = useContext(Context);
+	/* token*/
+
+	const token = localStorage.getItem("jwt-token");
+	useEffect(() => {
+		actions.getAllDiseases();
+	}, []);
+
+	const list = store.diseases.map((disease, i) => {
+		const { id, name } = disease;
+		const link = `/disease/${id}`;
+		return (
+			<NavDropdown.ItemText key={i.toString()}>
+				<Link className="link" to={link}>
+					{name}
+				</Link>
+			</NavDropdown.ItemText>
+		);
+	});
 
 	const closeLoginModal = () => {
 		setShowUserLogin(false);
@@ -38,28 +63,13 @@ const Navigation = () => {
 		<>
 			<Navbar className="navbar" expand="lg">
 				<Navbar.Brand href="/">
-					<AiFillHome
-						style={{
-							width: "2rem",
-							height: "2rem",
-							color: "#03e9f4"
-						}}
-					/>
+					<AiFillHome style={{ width: "2rem", height: "2rem" }} href="{{ url_for('main.profile') }}" />
 				</Navbar.Brand>
 				<Navbar.Toggle aria-controls="basic-navbar-nav" />
 				<Navbar.Collapse id="basic-navbar-nav" className="navbarCollapse">
 					<Nav className="mr-auto drop-menu ">
 						<NavDropdown className="dropwdown" title="Enfermedades" id="basic-nav-dropdown">
-							<NavDropdown.Item className="link" href="#action/3.1">
-								Enfermedad de Crohn
-							</NavDropdown.Item>
-							<NavDropdown.Item className="link" href="#action/3.2">
-								Diabetes
-							</NavDropdown.Item>
-							<NavDropdown.Item className="link" href="#action/3.3">
-								Artritis reumatoide
-							</NavDropdown.Item>
-							{/* <NavDropdown.Divider /> */}
+							{list}
 						</NavDropdown>
 						<Nav.Link className="main-button" href="/profesionales">
 							Profesionales
@@ -71,7 +81,7 @@ const Navigation = () => {
 					</Nav>
 					<div inline>
 						{isLoading && <Spinner className="spiner" animation="border" />}
-						{!isAuthenticated && (
+						{!token && (
 							<>
 								<button onClick={() => openLoginModal(true)} className="botonUsuario">
 									<GiStethoscope style={{ width: "1.8rem", height: "1.8rem" }} />

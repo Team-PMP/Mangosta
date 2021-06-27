@@ -11,7 +11,7 @@ export const Profesionales = () => {
 
 	return (
 		<>
-			<div className="text-center mt-5">
+			<div className="text-center mt-5" style={{ paddingTop: "100px" }}>
 				<h1>Encuentra tu profesional a solo un...</h1>
 				<img src={ProfesionalImage} className="profesionalImage" />
 			</div>

@@ -72,11 +72,25 @@ export const LoginUser = props => {
 						<Modal.Title className="login-head">{modalTitle}</Modal.Title>
 					</Modal.Header>
 					<div className="user-box">
-						<input type="text" className="input-login" />
+						<input
+							type="text"
+							className="input-login"
+							onChange={event => setEmail(event.target.value)}
+							name="email"
+							id="email"
+							value={email}
+						/>
 						<label className="input-text">Email</label>
 					</div>
 					<div className="user-box">
-						<input type="password" className="input-login" />
+						<input
+							type="password"
+							className="input-login"
+							onChange={event => setPassword(event.target.value)}
+							name="password"
+							id="password"
+							value={password}
+						/>
 						<label className="input-text">Contraseña</label>
 					</div>
 					{googleButton}

@@ -13,21 +13,6 @@ export const ProfesionalSignin = () => {
 	const [specialty, setSpecialty] = useState("");
 	const [services, setServices] = useState("");
 
-	// const [formData, setFormData] = useState({
-	// 	name: "",
-	// 	surname: "",
-	// 	email: "",
-	// 	password: "",
-	// 	specialty: "",
-	// 	services: ""
-	// });
-
-	// const handleChange = evt => {
-	// 	setFormData({
-	// 		[evt.target.name]: evt.target.value
-	// 	});
-	// };
-
 	const handleSubmit = evt => {
 		evt.preventDefault();
 

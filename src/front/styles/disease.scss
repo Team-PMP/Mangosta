@@ -1,0 +1,33 @@
+.firstCol{
+    background-color:white;
+    border-bottom: 3px  solid black;
+    text-align: center;
+    height: 20%;
+}
+.postRow{
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+.diseaseImg{
+    border-radius: 50%;
+    border: 3px solid black;
+}
+.imgCol{
+    display: flex;
+    justify-content: center;
+}
+.textCol{
+    background-color:#03e8f436;
+     border: 3px solid black;
+     border-radius: 1rem;
+}
+.diseaseName{
+  /* color:rgba(188, 245, 161, 0.692); */
+  color: black;
+  font-style: italic;
+}
+.firstRow{
+   background-color:white;
+   margin-top: 2%;
+}
+ /* rgba(188, 245, 161, 0.692) */

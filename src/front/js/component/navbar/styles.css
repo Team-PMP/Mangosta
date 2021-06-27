@@ -1,7 +1,6 @@
-
-/* .logo{
+.logo{
     height: 4.2rem;
-} */
+} 
 .navbar{
     position: absolute;
     z-index: 10; 
@@ -42,8 +41,6 @@
     font-weight: 500;
 }
 .main-button:hover {
-   /* transform: rotateX(1turn);  */
-  /* transform: rotate(360deg); */
   transition: .7s ease-in;
   letter-spacing: 5px;
 
@@ -86,10 +83,10 @@
 @media (max-width: 900px) {
 
 
-.navbar{
-    /* border-bottom: 1px solid rgba(0, 0, 0, 0.404);
-    z-index: 10; */
-}
+/* .navbar{
+     border-bottom: 1px solid rgba(0, 0, 0, 0.404);
+    z-index: 10; 
+} */
 .navbarCollapse{
     width: 100%;
     
