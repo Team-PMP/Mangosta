@@ -1,4 +1,4 @@
-.botonUsuario{
+/* .botonUsuario{
     margin-right: 2rem;
 }
 
@@ -54,6 +54,11 @@ margin-left: 25%;
 .accessButton:hover{
     background-color:rgba(84, 143, 56, 0.74);
 }
+.signupButton{
+    width: 9rem;
+    height: 2.5rem;
+    margin-top: 1rem;
+}
 .inputLogin{
     text-align: center;
     border-radius: 8px;
@@ -61,4 +66,339 @@ margin-left: 25%;
 .botones{
     display: flex;
     justify-content: center;
+} */
+.modal{
+    
+    padding-top: 15rem;
+    /* box-sizing: border-box;
+    border: 0 auto; */
+    
+}
+.modal-content{
+     border: none;
+}
+.login-box {
+  
+  position: absolute;
+  left: 50%;
+  width: 400px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: rgba(0,0,0,.5);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(117, 200, 214, 0.6);
+  border-radius: 10px;
+  height: 475px;
+  /* border: 3px solid red;
+  background-color: white; */
+  
+}
+
+.login-head {
+  margin: 0 0 20px;
+  padding: 0;
+   color: #fff; 
+  /* color:black; */
+  text-align: center;
+  border: none;
+}
+.modal-header{
+    border-bottom: none;
+}
+
+.login-box .user-box {
+  position: relative; 
+}
+
+.input-login {
+  width: 100%;
+  padding: 10px 0px 5px 0px;
+  font-size: 16px;
+  /* color: #fff; */
+  color: black;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+   background: transparent; 
+}
+.user-box{
+    margin: 20px 0 0 0;
+}
+.input-text {
+  position: absolute;
+  top:-15px;
+  left: 0;
+  
+  padding: 10px 0 0 5px;
+  font-size: 16px;
+   color: #fff; 
+  /* color: black; */
+  pointer-events: none;
+  transition: .5s;
+}
+
+.input-login[type=text]:focus ~ label,
+.input-login[type=text]:valid {
+  top: -25px;
+  left: 0;
+  color: #03e9f4;
+  font-size: 18px;
+}
+.input-login[type=password]:focus ~ label,
+.input-login[type=password]:valid {
+  top: -25px;
+  left: 0;
+  color: #03e9f4;
+  font-size: 18px;
+}
+.botones{
+    display: flex;
+    justify-content: center;
+    
+}
+
+/*     LOGIN BUTTON  */
+.login-button {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #03e9f4;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 40px;
+  letter-spacing: 4px;
+  background-color: transparent;
+  border: none;
+}
+
+.login-button:hover {
+  background: #03e9f4;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #03e9f4,
+              0 0 25px #03e9f4,
+              0 0 50px #03e9f4,
+              0 0 100px #03e9f4;
+}
+
+.login-button span {
+  position: absolute;
+  display: block;
+}
+
+.login-button span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #03e9f4);
+  animation: btn-anim1 1s linear infinite;
+}
+
+@keyframes btn-anim1 {
+  0% {
+    left: -100%;
+  }
+  50%,100% {
+    left: 100%;
+  }
+}
+
+.login-button span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #03e9f4);
+  animation: btn-anim2 1s linear infinite;
+  animation-delay: .25s
+}
+
+@keyframes btn-anim2 {
+  0% {
+    top: -100%;
+  }
+  50%,100% {
+    top: 100%;
+  }
+}
+
+.login-button span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #03e9f4);
+  animation: btn-anim3 1s linear infinite;
+  animation-delay: .5s
+}
+
+@keyframes btn-anim3 {
+  0% {
+    right: -100%;
+  }
+  50%,100% {
+    right: 100%;
+  }
+}
+
+.login-button span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #03e9f4);
+  animation: btn-anim4 1s linear infinite;
+  animation-delay: .75s
+}
+
+@keyframes btn-anim4 {
+  0% {
+    bottom: -100%;
+  }
+  50%,100% {
+    bottom: 100%;
+  }
+}
+
+
+
+/*   SIGN UN BUTTON */
+
+
+
+.sign-button {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #f46f03;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 40px;
+  letter-spacing: 4px;
+  background-color: transparent;
+  border: none;
+  margin-left: 20px;
+}
+.sign-button a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.sign-button:hover {
+  background: #f46f03;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #f46f03,
+              0 0 25px #f46f03,
+              0 0 50px #f46f03,
+              0 0 100px #f46f03;
+}
+
+.sign-button span {
+  position: absolute;
+  display: block;
+}
+
+.sign-button span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #f46f03);
+  animation: btn-anima1 1s linear infinite;
+}
+
+@keyframes btn-anima1 {
+  0% {
+    left: -100%;
+  }
+  50%,100% {
+    left: 100%;
+  }
+}
+
+.sign-button span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #f46f03);
+  animation: btn-anima2 1s linear infinite;
+  animation-delay: .25s
+}
+
+@keyframes btn-anima2 {
+  0% {
+    top: -100%;
+  }
+  50%,100% {
+    top: 100%;
+  }
+}
+
+.sign-button span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #f46f03);
+  animation: btn-anima3 1s linear infinite;
+  animation-delay: .5s
+}
+
+@keyframes btn-anima3 {
+  0% {
+    right: -100%;
+  }
+  50%,100% {
+    right: 100%;
+  }
+}
+
+.sign-button span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #f46f03);
+  animation: btn-anima4 1s linear infinite;
+  animation-delay: .75s
+}
+
+@keyframes btn-anima4 {
+  0% {
+    bottom: -100%;
+  }
+  50%,100% {
+    bottom: 100%;
+  }
+}
+
+.login-google{
+  position: relative;
+  display: inline-block;
+  padding: 5px 20px;
+  color: #f46f03;
+  font-size: 12px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 0px;
+  letter-spacing: 4px;
+  background-color: transparent;
+  border: none;
+  margin-left: 20px;
+}
+.login-google:hover{
+    color: #03e9f4;
+    
 }

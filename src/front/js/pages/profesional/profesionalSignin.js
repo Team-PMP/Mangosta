@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Form, Col, Row, Container, Button } from "react-bootstrap";
 import { Context } from "../../store/appContext";
+import "../../../styles/signUp.scss";
 
 export const ProfesionalSignin = () => {
 	const { store, actions } = useContext(Context);
@@ -11,21 +12,6 @@ export const ProfesionalSignin = () => {
 	const [repeatPassword, setRepeatPassword] = useState("");
 	const [specialty, setSpecialty] = useState("");
 	const [services, setServices] = useState("");
-
-	// const [formData, setFormData] = useState({
-	// 	name: "",
-	// 	surname: "",
-	// 	email: "",
-	// 	password: "",
-	// 	specialty: "",
-	// 	services: ""
-	// });
-
-	// const handleChange = evt => {
-	// 	setFormData({
-	// 		[evt.target.name]: evt.target.value
-	// 	});
-	// };
 
 	const handleSubmit = evt => {
 		evt.preventDefault();
@@ -43,49 +29,19 @@ export const ProfesionalSignin = () => {
 	};
 
 	return (
-		<Container>
-			<Form className="mt-5" onSubmit={handleSubmit}>
-				{/* Tipo de usuario
-				<fieldset>
-					<Form.Group as={Row} className="align-items-center">
-						<Form.Label as="legend" column sm={2}>
-							Tipo de Usuario
-						</Form.Label>
-						<Row sm={10} className="ml-3">
-							<Form.Check type="radio" label="Profesional" name="typeOfUser" value="Pro" />
-							<Form.Check type="radio" label="Usuario" name="typeOfUser" value="U" className="ml-4" />
-						</Row>
-					</Form.Group>
-				</fieldset> */}
-
-				{/* Nombre de usuario */}
-				{/* <Form.Group as={Row}>
-					<Form.Label column sm={2} htmlFor="username">
-						Nombre de Usuario
-					</Form.Label>
-					<Col sm={10}>
-						<Form.Control
-							type="text"
-							placeholder="Nombre de Usuario"
-							name="username"
-							id="username"
-							value={username}
-							onChange={event => setUsername(event.target.value)}
-						/>
-					</Col>
-				</Form.Group> */}
-
+		<div className="form-layout">
+			<Form className="form-container" onSubmit={handleSubmit}>
 				{/* Nombre */}
-				<Form.Group as={Row}>
-					<Form.Label column sm={2} htmlFor="name">
+				<Form.Group as={Row} className="user-box">
+					<Form.Label column sm={2} htmlFor="name" className="input-text">
 						Nombre
 					</Form.Label>
 					<Col sm={10}>
 						<Form.Control
 							type="text"
-							placeholder="Nombre"
 							name="name"
 							id="name"
+							className="input-login"
 							value={name}
 							onChange={event => setName(event.target.value)}
 						/>
@@ -93,16 +49,16 @@ export const ProfesionalSignin = () => {
 				</Form.Group>
 
 				{/* Apellidos */}
-				<Form.Group as={Row}>
-					<Form.Label column sm={2} htmlFor="surname">
+				<Form.Group as={Row} className="user-box">
+					<Form.Label column sm={2} htmlFor="surname" className="input-text">
 						Apellidos
 					</Form.Label>
 					<Col sm={10}>
 						<Form.Control
 							type="text"
-							placeholder="Apellidos"
 							name="surname"
 							id="surname"
+							className="input-login"
 							value={surname}
 							onChange={event => setSurname(event.target.value)}
 						/>
@@ -110,16 +66,16 @@ export const ProfesionalSignin = () => {
 				</Form.Group>
 
 				{/* Email */}
-				<Form.Group as={Row}>
-					<Form.Label column sm={2} htmlFor="email">
+				<Form.Group as={Row} className="user-box">
+					<Form.Label column sm={2} htmlFor="email" className="input-text">
 						E-mail
 					</Form.Label>
 					<Col sm={10}>
 						<Form.Control
 							type="email"
-							placeholder="E-mail"
 							name="email"
 							id="email"
+							className="input-login"
 							value={email}
 							onChange={event => setEmail(event.target.value)}
 						/>
@@ -127,16 +83,16 @@ export const ProfesionalSignin = () => {
 				</Form.Group>
 
 				{/* Contraseña */}
-				<Form.Group as={Row}>
-					<Form.Label column sm={2} htmlFor="password">
+				<Form.Group as={Row} className="user-box">
+					<Form.Label column sm={2} htmlFor="password" className="input-text">
 						Contraseña
 					</Form.Label>
 					<Col sm={10}>
 						<Form.Control
 							type="password"
-							placeholder="Contraseña"
 							name="password"
 							id="password"
+							className="input-login"
 							value={password}
 							onChange={event => setPassword(event.target.value)}
 						/>
@@ -144,16 +100,16 @@ export const ProfesionalSignin = () => {
 				</Form.Group>
 
 				{/* Repetir contraseña */}
-				<Form.Group as={Row}>
-					<Form.Label column sm={2} htmlFor="repeatPassword">
+				<Form.Group as={Row} className="user-box">
+					<Form.Label column sm={2} htmlFor="repeatPassword" className="input-text">
 						Repetir Contraseña
 					</Form.Label>
 					<Col sm={10}>
 						<Form.Control
 							type="password"
-							placeholder="Repetir Contraseña"
 							name="repeatPassword"
 							id="repeatPassword"
+							className="input-login"
 							value={repeatPassword}
 							onChange={event => setRepeatPassword(event.target.value)}
 						/>
@@ -161,8 +117,8 @@ export const ProfesionalSignin = () => {
 				</Form.Group>
 
 				{/* Especialidad */}
-				<Form.Group as={Row}>
-					<Form.Label column sm={2} htmlFor="specialty">
+				<Form.Group as={Row} className="user-box">
+					<Form.Label column sm={2} htmlFor="specialty" className="input-text">
 						Especialidad
 					</Form.Label>
 					<Col sm={10}>
@@ -170,6 +126,7 @@ export const ProfesionalSignin = () => {
 							as="select"
 							id="specialty"
 							name="specialty"
+							className="input-login"
 							value={specialty}
 							onChange={event => setSpecialty(event.target.value)}>
 							<option value="Esp">Seleccione una especialidad</option>
@@ -182,8 +139,8 @@ export const ProfesionalSignin = () => {
 				</Form.Group>
 
 				{/* Servicios */}
-				<Form.Group as={Row}>
-					<Form.Label column sm={2} htmlFor="services">
+				<Form.Group as={Row} className="user-box">
+					<Form.Label column sm={2} htmlFor="services" className="input-text">
 						Servicios
 					</Form.Label>
 					<Col sm={10}>
@@ -191,6 +148,7 @@ export const ProfesionalSignin = () => {
 							as="select"
 							id="services"
 							name="services"
+							className="input-login"
 							value={services}
 							onChange={event => setServices(event.target.value)}>
 							<option value="Ser">Seleccione un servicio</option>
@@ -215,12 +173,16 @@ export const ProfesionalSignin = () => {
 				</Row>
 				<Row className="justify-content-center mt-4">
 					{/* Submit */}
-					<Button variant="primary" type="submit" className="align-items-center">
+					<Button variant="primary" type="submit" className="login-button">
+						<span />
+						<span />
+						<span />
+						<span />
 						Registrarse
 					</Button>
 				</Row>
 			</Form>
-		</Container>
+		</div>
 	);
 };
 export default ProfesionalSignin;
