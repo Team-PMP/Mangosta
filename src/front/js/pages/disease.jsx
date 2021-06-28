@@ -23,7 +23,7 @@ export const Disease = () => {
 		[id]
 	);
 	return (
-		<Container>
+		<Container style={{ paddingTop: "150px" }}>
 			{/* Stack the columns on mobile by making one full-width and the other half-width */}
 			<Row className="firstRow justify-content-md-center">
 				<Col className="firstCol" xs={12} md={8}>

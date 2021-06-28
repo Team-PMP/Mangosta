@@ -25,7 +25,18 @@
     display: flex;
     justify-content: flex-end;
 }
-
+.biUser{
+    color: #03e9f4;
+}
+.biUser:hover{
+    color: #03e8f4be;
+}
+.biUser::after{
+    color: #03e9f4;
+}
+.biUser::before{
+    color: #03e9f4;
+}
 @media (max-width: 900px) {
 
 .mini-profile{

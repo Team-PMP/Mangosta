@@ -12,7 +12,7 @@ export const Servicios = () => {
 
 	return (
 		<>
-			<div>
+			<div style={{ paddingTop: "150px" }}>
 				<div className="col-12 p-3 mb-2 text-blue text-center">
 					<CardDeck>
 						<Card className="border-0">

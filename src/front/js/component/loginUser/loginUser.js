@@ -6,7 +6,6 @@ import Modal from "react-bootstrap/Modal";
 //import LoginGoogle from "../login/loginGoogle";
 import { useAuth0 } from "@auth0/auth0-react";
 import { FcGoogle } from "react-icons/fc";
-//Login
 import { Context } from "../../store/appContext";
 
 export const LoginUser = props => {
@@ -40,17 +39,25 @@ export const LoginUser = props => {
 				</button>
 			);
 			userSignUpButton = (
-				<Button variant="secondary" href="/user/userSignin" className="signupButton">
-					Crear cuenta
-				</Button>
+				<button className="sign-button">
+					<span />
+					<span />
+					<span />
+					<span />
+					<a href="/user/userSignin">Crear cuenta</a>
+				</button>
 			);
 			break;
 		case "professional":
 			modalTitle = "Acceso Profesional";
 			professionalSignUpButton = (
-				<Button variant="secondary" href="/profesional/profesionalSignin" className="signupButton">
-					Crear cuenta
-				</Button>
+				<button className="sign-button">
+					<span />
+					<span />
+					<span />
+					<span />
+					<a href="/profesional/profesionalSignin">Crear cuenta</a>
+				</button>
 			);
 
 		default:
@@ -59,38 +66,42 @@ export const LoginUser = props => {
 
 	return (
 		<>
-			<Modal show={show} onHide={onHide}>
-				<Modal.Header closeButton className="modalHeader">
-					<Modal.Title className="modalTitle">{modalTitle}</Modal.Title>
-				</Modal.Header>
-				<Modal.Body className="modalBody">
-					<label>
+			<Modal show={show} onHide={onHide} className="modal">
+				<Modal.Body className="login-box" styles={{ padding: "0" }}>
+					<Modal.Header>
+						<Modal.Title className="login-head">{modalTitle}</Modal.Title>
+					</Modal.Header>
+					<div className="user-box">
 						<input
 							type="text"
-							placeholder="Correo electronico"
+							className="input-login"
+							onChange={event => setEmail(event.target.value)}
 							name="email"
 							id="email"
 							value={email}
-							className="inputLogin"
-							onChange={event => setEmail(event.target.value)}
 						/>
-					</label>
-					<label>
+						<label className="input-text">Email</label>
+					</div>
+					<div className="user-box">
 						<input
 							type="password"
-							placeholder="Contraseña"
+							className="input-login"
+							onChange={event => setPassword(event.target.value)}
 							name="password"
 							id="password"
 							value={password}
-							onChange={event => setPassword(event.target.value)}
-							className="inputLogin"
 						/>
-					</label>
+						<label className="input-text">Contraseña</label>
+					</div>
 					{googleButton}
 					<div className="botones">
-						<Button variant="secondary" className="accessButton" onClick={loginSubmit}>
+						<button className="login-button" onClick={loginSubmit}>
+							<span />
+							<span />
+							<span />
+							<span />
 							Entrar
-						</Button>
+						</button>
 						{userSignUpButton}
 						{professionalSignUpButton}
 					</div>

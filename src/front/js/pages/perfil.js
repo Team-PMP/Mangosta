@@ -19,7 +19,14 @@ export const Perfil = () => {
 	}, []);
 
 	return (
-		<div style={{ display: "flex", justifyContent: "center", flexDirection: "column", alignItems: "center" }}>
+		<div
+			style={{
+				display: "flex",
+				justifyContent: "center",
+				flexDirection: "column",
+				alignItems: "center",
+				paddingTop: "100px"
+			}}>
 			{token && (
 				<div className="container-profile">
 					<Tabs defaultActiveKey="profile" transition={false} id="noanim-tab-example" className="mb-3">
