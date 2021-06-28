@@ -15,7 +15,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			],
 			diseases: [],
-			currentDisease: {}
+			currentDisease: {},
+			latestPosts: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -43,6 +44,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 					.then(resp => resp.json())
 					.then(data => setStore({ diseases: data }))
+					.catch(error => console.log("Error loading message from backend", error));
+			},
+			getLatestPosts: id => {
+				// fetching data from the backend
+				fetch(`${process.env.BACKEND_URL}/api/posts/diseases/${id}`, {
+					method: "GET"
+				})
+					.then(resp => resp.json())
+					.then(data => setStore({ latestPosts: data }))
 					.catch(error => console.log("Error loading message from backend", error));
 			},
 			getCurrentDisease: id => {

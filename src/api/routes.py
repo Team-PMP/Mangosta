@@ -7,7 +7,6 @@ from api.utils import generate_sitemap, APIException
 from flask_jwt_extended import create_access_token
 
 
-
 api = Blueprint('api', __name__)
 
 
@@ -40,15 +39,14 @@ def protected():
     # Accede a la identidad del usuario actual con get_jwt_identity
     current_user_id = get_jwt_identity()
     user = User.filter.get(current_user_id)
-    
-    return jsonify({"email": email,
-            "name": name,
-            "surname": surname,
-            "phone": phone,
-            "picture": picture,
-            "profesional": profesional,
-            "specialties": specialties,}), 200
 
+    return jsonify({"email": email,
+                    "name": name,
+                    "surname": surname,
+                    "phone": phone,
+                    "picture": picture,
+                    "profesional": profesional,
+                    "specialties": specialties, }), 200
 
 
 @api.route("/login", methods=["POST"])
@@ -56,14 +54,24 @@ def login():
 
     payload = request.get_json()
 
-    user = User.query.filter_by(email=payload["email"], password=payload["password"]).first()
+    user = User.query.filter_by(
+        email=payload["email"], password=payload["password"]).first()
     if user is None:
-        return jsonfiy({"error":"Invalid email or password"}), 401
+        return jsonfiy({"error": "Invalid email or password"}), 401
 
     access_token = create_access_token(identity=user.id)
     return jsonify({"token": access_token, "user_id": user.id})
 
-
+@api.route('/posts/diseases/<int:id>', methods=['GET'])
+def get_posts(id):
+    all_posts = Post.query.filter_by(disease_id=id).limit(10).all()
+    if all_posts is None:
+        return jsonify({'message': 'esta enfermedad no tiene posts relacionados'})
+    serialized_posts = []
+    for post in all_posts:
+        serialized_posts.append(post.serialize())
+    return jsonify(serialized_posts), 200
+    
 
 @api.route('/diseases', methods=['GET'])
 def get_all_diseases():
@@ -74,17 +82,14 @@ def get_all_diseases():
     for disease in all_diseases:
         serialized_diseases.append(disease.serialize())
     print(all_diseases)
-
     return jsonify(serialized_diseases), 200
 
-
-    
 @api.route('/disease/<int:id>', methods=['GET'])
 def get_disease(id):
-    
+
     disease = Disease.query.get(id)
     serialized_disease = disease.serialize()
-    
+
     return jsonify(serialized_disease), 200
 
 
@@ -93,9 +98,9 @@ def get_disease(id):
 def handle_create_user():
     payload = request.get_json()
     profesional = False
-    picture=""
-    phone=None
-     # validación
+    picture = ""
+    phone = None
+    # validación
     if payload is None:
         return "The request payload is null", 400
     if 'name' not in payload:
@@ -105,21 +110,20 @@ def handle_create_user():
     if 'surname' not in payload:
         return 'Especificar surname', 400
     if 'picture' in payload:
-        picture= payload['picture'],
+        picture = payload['picture'],
     if 'phone' in payload:
-        phone= payload['phone'],
+        phone = payload['phone'],
     if 'profesional' in payload:
         profesional = True
     if 'password' not in payload:
         return 'Especificar password', 400
-        
-       
+
     print(payload)
-    user = User(email=payload['email'],password=payload['password'],name=payload['name'],surname=payload['surname'],phone=phone,picture=picture,profesional=profesional)
-    
+    user = User(email=payload['email'], password=payload['password'], name=payload['name'],
+                surname=payload['surname'], phone=phone, picture=picture, profesional=profesional)
+
     db.session.add(user)
     db.session.commit()
 
-    print ("end payload")
+    print("end payload")
     return jsonify(user.serialize())
-

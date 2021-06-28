@@ -5,7 +5,9 @@
     height: 20%;
 }
 .postRow{
-    flex-wrap: nowrap;
+
+    display: flex;
+    flex-direction: row;
     overflow-x: auto;
 }
 .diseaseImg{

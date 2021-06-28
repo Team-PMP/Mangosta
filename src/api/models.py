@@ -26,10 +26,11 @@ class User(db.Model):
     phone = db.Column(db.String(50), unique=True, nullable=False)
     picture = db.Column(db.String(120), nullable=True)
     profesional = db.Column(db.Boolean, unique=False, nullable=False)
- 
-    posts = db.relationship('Post', lazy=True)
-    services = db.relationship('Service', lazy=True)
-    comments = db.relationship('Comment', lazy=True)
+    
+    
+    posts = db.relationship("Post", backref= "user", lazy=True)
+    services = db.relationship('Service', backref= "user", lazy=True)
+    comments = db.relationship('Comment', backref= "user", lazy=True)
     """ diseases = db.relationship('Disease', lazy=True) """
     specialties = db.relationship("Specialty", secondary=specialties_users, back_populates="users")
     
@@ -60,8 +61,11 @@ class Post(db.Model):
     coment_id = db.Column(db.Integer, nullable=False)
     disease_id = db.Column(db.Integer,  db.ForeignKey("disease.id"), nullable=False)
 
-    comments = db.relationship('Comment', lazy=True)
-        
+    comments = db.relationship('Comment', backref="post", lazy=True)
+    
+    def create(self):
+        db.session.add(self)
+        db.session.commit()    
         
     
  
@@ -83,17 +87,18 @@ class Disease(db.Model):
     image = db.Column(db.String(120),  nullable=True)
     """  user_id = db.Column(db.Integer, db.ForeignKey("user.id"))  """
 
-    posts = db.relationship('Post', lazy=True)
+    posts = db.relationship('Post', backref="disease", lazy=True)
     services = db.relationship("Service",
                     secondary=diseases_services,
                     back_populates="diseases") 
     specialties = db.relationship("Specialty",
                     secondary=diseases_specialties,
                     back_populates="diseases")
-        
-        
     
- 
+    def create(self):
+        db.session.add(self)
+        db.session.commit()
+        
     def __repr__(self):
         return '<Disease %r>' % self.name
  
@@ -115,8 +120,11 @@ class Comment (db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
     post_id = db.Column(db.Integer, db.ForeignKey("post.id"), nullable=False)
     
+    
         
-        
+    def create(self):
+        db.session.add(self)
+        db.session.commit()    
     
  
     def __repr__(self):
@@ -134,7 +142,7 @@ class Service (db.Model):
     name = db.Column(db.String(50), unique=False, nullable=False)
     information = db.Column(db.Text, unique=False, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
- 
+    
     diseases = db.relationship("Disease",
                     secondary=diseases_services,
                     back_populates="services")
