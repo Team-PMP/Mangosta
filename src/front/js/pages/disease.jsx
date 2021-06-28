@@ -8,17 +8,40 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Context } from "../store/appContext";
 import "../../styles/disease.scss";
 //Components
-import PostCard from "../component/postCard/postCard";
+import PostCard from "../component/postCard/postCard.js";
 
 export const Disease = () => {
 	const { store, actions } = useContext(Context);
 	const { id } = useParams();
 	console.log(id);
 	console.log(store.currentDisease.name);
+	const postsPrueba = [
+		{
+			title: "The Seven Deadly Sins",
+			info: "cositas para probar",
+			image: "https://picsum.photos/200"
+		},
+		{
+			title: "The Seven Deadly Sins",
+			info: "cositas para probar",
+			image: "https://picsum.photos/200"
+		},
+		{
+			title: "The Seven Deadly Sins",
+			info: "cositas para probar",
+			image: "https://picsum.photos/200"
+		}
+	];
+
+	const postsList = store.latestPosts.map((post, i) => {
+		const { title, info, image } = post;
+		return <PostCard key={i.toString()} titlePost={title} textPost={info} imgPost={image} />;
+	});
 
 	useEffect(
 		() => {
 			actions.getCurrentDisease(id);
+			actions.getLatestPosts(id);
 		},
 		[id]
 	);
@@ -42,21 +65,20 @@ export const Disease = () => {
 			</Row>
 			{/* Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop */}
 			<Row className="postRow">
-				{/* <Col xs={6} md={4}>
-					xs=6 md=4
+				<Col xs={12} md={12}>
+					{postsList}
 				</Col>
-				<Col xs={6} md={4}>
-					xs=6 md=4
-				</Col>
-				<Col xs={6} md={4}>
-					xs=6 md=4
-				</Col> */}
 			</Row>
 			<Row className="buttonRow">
 				<Col xs={12} md={8}>
-					<h1>NEW POST</h1>
+					<h3>NEW POST</h3>
 					<hr />
 					<div className="mb-3">
+						<div className="form-group">
+							<label>titulo</label>
+							<input type="text" className="form-control" id="name" placeholder="titulo del post" />
+						</div>
+
 						<div className="form-group">
 							<label>Nombre</label>
 							<input type="text" className="form-control" id="name" placeholder="Enter Your Name" />
