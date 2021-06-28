@@ -1,47 +1,31 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import ProfesionalImage from "../../img/profesionales.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Context } from "../store/appContext";
 import "../../styles/profesionales.scss";
+import ReactBootstrap, { Button, Card, CardDeck, Image, Container, Row, Col } from "react-bootstrap";
+
 //Components
-import ProfesionalCard from "../component/profesionalCard/profesionalCard";
 
 export const Professionals = () => {
 	const { store, actions } = useContext(Context);
-	const [btnClassEndocrinología, setBtnClassEndocrinología] = useState("");
-	const [btnClassDermatología, setBtnClassDermatología] = useState("");
-	const [btnClassRehumatología, setBtnClassRehumatología] = useState("");
+	const { bring, setBring } = useState(0);
 
-	const handleClickEndocrinología = () => {
-		setBtnClassEndocrinología("getProfessionals");
-	};
+	useEffect(() => {
+		actions.getProfessionals();
+	}, []);
 
-	const handleClickDermatología = () => {
-		setBtnClassDermatología("");
-	};
+	const ProfessionalsList = store.professionals.map((prof, i) => {
+        const {name, surname, email, phone, specialties} = prof;
+        return (
+            <div className="bodyPage">
+                <div className="name">{name}</div>
+                <div className="surname">{surname}</div>
+                <div className="email">{email}</div>
+                <div className="phone">{phone}</div>
+                <div className="specialties">{specialties}</div>
+            </div>
+        );
+    });
 
-	const handleClickRehumatología = () => {
-		setBtnClassRehumatología("");
-	};
-
-	return (
-		<>
-			<div className="father">
-				<div>
-					<img href="https://i.pinimg.com/564x/87/f3/2a/87f32ac7239b4721c22c92b94fb52a40.jpg" />
-				</div>
-				<div>
-					<button
-						onClick={handleClickEndocrinología}
-						className={`endocrinología ${btnClassEndocrinología}`}
-					/>
-					<button onClick={handleClickDermatología} className={`dermatología ${btnClassDermatología}`} />
-					<button
-						onClick={handleClickRehumatología}
-						className={`rehumatología ${btnClassRehumatología}`}
-					/>-{" "}
-				</div>
-			</div>
-		</>
-	);
 };

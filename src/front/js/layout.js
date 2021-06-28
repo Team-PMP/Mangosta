@@ -8,7 +8,7 @@ import { Single } from "./pages/single";
 import injectContext from "./store/appContext";
 //
 import { Perfil } from "./pages/perfil";
-import { Profesionales } from "./pages/profesionales";
+import { Professionals } from "./pages/professionals";
 import { Servicios } from "./pages/servicios";
 
 import Navigation from "./component/navbar/navbar";
@@ -43,8 +43,8 @@ const Layout = () => {
 						<Route exact path="/perfil">
 							<Perfil />
 						</Route>
-						<Route exact path="/profesionales">
-							<Profesionales />
+						<Route exact path="/professionals">
+							<Professionals />
 						</Route>
 						<Route exact path="/servicios">
 							<Servicios />
