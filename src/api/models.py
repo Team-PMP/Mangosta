@@ -58,7 +58,6 @@ class Post(db.Model):
     info = db.Column(db.Text, unique=False, nullable=False)
     image = db.Column(db.String(120),  nullable=True)
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
-    coment_id = db.Column(db.Integer, nullable=False)
     disease_id = db.Column(db.Integer,  db.ForeignKey("disease.id"), nullable=False)
 
     comments = db.relationship('Comment', backref="post", lazy=True)

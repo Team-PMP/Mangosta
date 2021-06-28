@@ -81,7 +81,6 @@ def get_all_diseases():
     serialized_diseases = []
     for disease in all_diseases:
         serialized_diseases.append(disease.serialize())
-    print(all_diseases)
     return jsonify(serialized_diseases), 200
 
 @api.route('/disease/<int:id>', methods=['GET'])
