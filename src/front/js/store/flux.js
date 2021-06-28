@@ -1,10 +1,10 @@
 const getState = ({ getStore, getActions, setStore }) => {
-	const token = localStorage.getItem("token");
+	// const token = localStorage.getItem("token");
 	return {
 		store: {
 			message: null,
 			user: [],
-			token: token,
+			token: null,
 			profile: [],
 			diseases: [],
 			currentDisease: {}
@@ -55,7 +55,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(error => console.log("Error loading message from backend", error));
 			},
 
-			loginUser: data => {
+			loginUser: (data, callback) => {
 				fetch(process.env.BACKEND_URL + "/api/login", {
 					method: "POST",
 					body: JSON.stringify(data),
@@ -66,7 +66,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(resp => {
 						console.log(resp);
 						if (resp.ok) {
-							window.location.href = "/";
 							return resp.json();
 						} else if (resp.status === 401) {
 							console.log("Invalid credentials");
@@ -77,41 +76,49 @@ const getState = ({ getStore, getActions, setStore }) => {
 						localStorage.setItem("jwt-token", data.token);
 						console.log("Login Done");
 						// console.log("Login satisfactorio");
-						setStore({ user: data });
-						setStore({ token: json.token });
-						console.log(token);
+						setStore({ user: data.user });
+						setStore({ token: data.token });
+						console.log(data.token);
+						// window.location.href = "/";
+						callback();
 					})
 					.catch(error => console.error("There has been an uknown error", error));
 			},
-			logOut() {
+
+			getToken: () => {
+				const token = localStorage.getItem("jwt-token");
+				setStore({ token: token });
+			},
+
+			logOut: () => {
 				localStorage.removeItem("jwt-token");
 				setStore({ token: null });
 				console.log("token removed");
 			},
 
-			getcurrentUser: data => {
-				const store = getStore();
-				const endpoint = process.env.BACKEND_URL + "/api/profiles";
-				const config = {
-					method: "GET",
-					headers: {
-						"Content-Type": "application/json",
-						Authorization: `${store.token}`,
-						cors: "no-cors"
-					}
-				};
-				fetch(endpoint, config)
-					.then(response => {
-						if (!response.ok) {
-							// window.location.href = "/";
-							console.log("successful fecth profiles");
+			getCurrentUser: () => {
+				const token = localStorage.getItem("jwt-token");
+				if (token) {
+					setStore({ token: token });
+					const endpoint = process.env.BACKEND_URL + "/api/profiles";
+					const config = {
+						method: "GET",
+						headers: {
+							Authorization: `Bearer ${token}`
 						}
-						return response.json();
-					})
-					.then(json => {
-						setStore({ user: data });
-						console.log("user data:", store.user);
-					});
+					};
+					fetch(endpoint, config)
+						.then(response => {
+							if (!response.ok) {
+								// window.location.href = "/";
+								console.error("Error");
+							}
+							return response.json();
+						})
+						.then(json => {
+							setStore({ user: json });
+						});
+				}
 			},
 
 			changeColor: (index, color) => {

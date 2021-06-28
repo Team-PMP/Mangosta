@@ -4,20 +4,27 @@ from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy()
 
 diseases_services = db.Table('diseases_services',
-    db.Column("disease_id", db.Integer, db.ForeignKey("disease.id"),primary_key=True),
-    db.Column("service_id", db.Integer, db.ForeignKey("service.id"),primary_key=True)
+    db.Column("disease_id", db.Integer, db.ForeignKey(
+        "disease.id"), primary_key=True),
+    db.Column("service_id", db.Integer, db.ForeignKey(
+        "service.id"), primary_key=True)
 )
- 
+
 diseases_specialties = db.Table('diseases_specialties',
-    db.Column("disease_id", db.Integer, db.ForeignKey("disease.id"),primary_key=True),
-    db.Column("specialty_id", db.Integer, db.ForeignKey("specialty.id"),primary_key=True)
+    db.Column("disease_id", db.Integer, db.ForeignKey(
+        "disease.id"), primary_key=True),
+    db.Column("specialty_id", db.Integer, db.ForeignKey(
+        "specialty.id"), primary_key=True)
 )
- 
+
 specialties_users = db.Table('specialties_users',
-    db.Column("specialty_id", db.Integer, db.ForeignKey("specialty.id"),primary_key=True),
-    db.Column("user_id", db.Integer, db.ForeignKey("user.id"),primary_key=True)
+    db.Column("specialty_id", db.Integer, db.ForeignKey(
+        "specialty.id"), primary_key=True),
+    db.Column("user_id", db.Integer, db.ForeignKey(
+        "user.id"), primary_key=True)
 )
- 
+
+
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(120), unique=True, nullable=False)
@@ -27,14 +34,16 @@ class User(db.Model):
     phone = db.Column(db.String(50), unique=True, nullable=True)
     picture = db.Column(db.String(120), nullable=True)
     profesional = db.Column(db.Boolean, unique=False, nullable=False)
- 
+
     posts = db.relationship('Post', lazy=True)
     services = db.relationship('Service', lazy=True)
     comments = db.relationship('Comment', lazy=True)
-    # diseases = db.relationship('Disease', lazy=True) 
-    specialties = db.relationship("Specialty", secondary=specialties_users, back_populates="users")
-    
-        
+    # diseases = db.relationship('Disease', lazy=True)
+    specialties = db.relationship(
+        "Specialty", secondary=specialties_users, back_populates="users")
+
+    def get_user_by_id(user_id):
+       return User.query.get(user_id)
    
  
     def __repr__(self):

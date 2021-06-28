@@ -1,6 +1,6 @@
 .container-profile{
     width: 35rem;
-    height: 35rem;
+    height: 25rem;
     // border: 3px solid rgba(0, 0, 0, 0.37);
     border-radius: 10px;
     margin-top:  4rem;
@@ -19,6 +19,11 @@
 
         span{
             padding: 0.5rem;
+            color: rgb(48, 197, 235);
+        }
+        .name{
+            
+            text-transform: capitalize;
         }
 
         .profile-photo{

@@ -58,15 +58,9 @@ def get_all_users():
 @api.route('/profiles', methods=['GET'])
 @jwt_required()
 def handle_profile():
-    user_email = get_jwt_identity()
-    user= User.get_user_by_email(user_email)
-    return jsonify({"email": email,
-             "name": name,
-             "surname": surname,
-             "phone": phone,
-             "picture": picture,
-             "profesional": profesional,
-             "specialties": specialties,}), 200
+    user_id = get_jwt_identity()
+    user= User.get_user_by_id(user_id)
+    return jsonify(user.serialize()), 200
 
 
 
