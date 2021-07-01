@@ -8,7 +8,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			profile: [],
 			diseases: [],
 			currentDisease: {},
-			latestPosts: []
+			latestPosts: [],
+			professionals: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -16,6 +17,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 				getActions().changeColor(0, "green");
 			},
 
+			getProfessionals: () => {
+				// fetching data from the backend
+				fetch(process.env.BACKEND_URL + "api/users/professionals", {
+					method: "GET"
+				})
+					.then(resp => resp.json())
+					.then(data => {
+						setStore({ professionals: data });
+						console.log(data);
+					})
+					.catch(error => console.log("Error loading message from backend", error));
+			},
 			createUser: data => {
 				// fetching data from the backend
 				fetch(process.env.BACKEND_URL + "/api/users", {
