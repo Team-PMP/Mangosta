@@ -7,6 +7,7 @@ import Modal from "react-bootstrap/Modal";
 import { useAuth0 } from "@auth0/auth0-react";
 import { FcGoogle } from "react-icons/fc";
 import { Context } from "../../store/appContext";
+import { useHistory } from "react-router-dom";
 
 export const LoginUser = props => {
 	const { loginWithPopup, loginWithRedirect } = useAuth0();
@@ -18,6 +19,7 @@ export const LoginUser = props => {
 	const { store, actions } = useContext(Context);
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	let history = useHistory();
 
 	const loginSubmit = evt => {
 		evt.preventDefault();
@@ -26,8 +28,10 @@ export const LoginUser = props => {
 			email: email,
 			password: password
 		};
-
-		actions.loginUser(data);
+		const callback = () => {
+			history.push("/");
+		};
+		actions.loginUser(data, callback);
 	};
 
 	switch (userType) {

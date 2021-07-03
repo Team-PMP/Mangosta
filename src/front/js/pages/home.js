@@ -13,7 +13,6 @@ import { Profile } from "../component/profile/profile";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
-	const token = localStorage.getItem("jwt-token");
 
 	return (
 		<div className="background">

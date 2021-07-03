@@ -1,6 +1,9 @@
+.content{
+    background: linear-gradient(#ffffff 20%, #c8e7ec) no-repeat;
+}
 .container-profile{
-    width: 35rem;
-    height: 35rem;
+    width: 30rem;
+    height: 25rem;
     // border: 3px solid rgba(0, 0, 0, 0.37);
     border-radius: 10px;
     margin-top:  4rem;
@@ -8,6 +11,8 @@
     z-index: 10;
     position: relative;
     box-shadow: 2px 5px 5px 5px rgba(149, 218, 236, 0.582);
+
+    background: white;
 
 
 
@@ -19,6 +24,11 @@
 
         span{
             padding: 0.5rem;
+            color: rgb(48, 197, 235);
+        }
+        .name{
+            
+            text-transform: capitalize;
         }
 
         .profile-photo{

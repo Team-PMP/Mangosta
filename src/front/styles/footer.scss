@@ -1,0 +1,54 @@
+.footer-container{
+    background-color: rgba(229, 243, 245, 0.664)!important;
+    height: 100%;
+
+
+    .footer{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        padding-top: 20px;
+
+        ul{
+            li{
+                list-style: none;
+                font-size: 13px;
+                letter-spacing: 2px;
+                padding-top: 5px;
+                font-weight: 500;
+                color:black;
+
+                .icon{
+                    width: 20px;
+                    height: 20px;
+                    padding-right: 5px;
+                }
+                .icon:hover{
+                    color:rgb(117, 199, 214);
+                }
+                a, a:link, a:visited, a:active{
+                    cursor: pointer;
+                    text-decoration: none;
+                    outline:none !important;
+                    color:black;
+                }
+                a:hover{
+                    color:rgba(5, 2, 2, 0.562);
+                    font-weight: 400;
+                }
+                
+            }
+
+        }
+        .small{
+            font-size: 13px;
+        }
+        .copy{
+            font-size: 15px;
+            letter-spacing: 1px;
+            padding-top: 40px;
+            font-weight: 500;
+        }
+    }
+
+}
