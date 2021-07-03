@@ -1,10 +1,44 @@
-import React, { Component } from "react";
+import React from "react";
+import { FaTelegramPlane } from "react-icons/fa";
+import { FaFacebookSquare } from "react-icons/fa";
+import { BiMailSend } from "react-icons/bi";
 
-export const Footer = () => (
-	<footer className="footer mt-auto py-3 text-center">
-		<p>
-			Made with <i className="fa fa-heart text-danger" /> by{" "}
-			<a href="http://www.4geeksacademy.com">4Geeks Academy</a>
-		</p>
-	</footer>
-);
+import "../../styles/footer.scss";
+
+export const Footer = () => {
+	return (
+		<div className="footer-container">
+			<footer className="footer">
+				<div>
+					<ul>
+						<li className="small">
+							<a>Politica privacidad</a>
+						</li>
+						<li className="small">
+							<a>Terminos y condiciones</a>
+						</li>
+					</ul>
+				</div>
+				<div className="copy">
+					<span>&copy; 2021 Auto-Doctor</span>
+				</div>
+				<div>
+					<ul>
+						<li>
+							<FaFacebookSquare className="icon" />
+							<a>Facebook</a>
+						</li>
+						<li>
+							<FaTelegramPlane className="icon" />
+							<a>Telegram</a>
+						</li>
+						<li>
+							<BiMailSend className="icon" />
+							<a href="mailto:support@autoDoctor.com">Contacto</a>
+						</li>
+					</ul>
+				</div>
+			</footer>
+		</div>
+	);
+};

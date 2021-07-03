@@ -28,44 +28,42 @@ const Layout = () => {
 	return (
 		<div className="d-flex flex-column h-100">
 			<BrowserRouter basename={basename}>
-				<ScrollToTop>
-					<Navigation />
-					<Switch>
-						<Route exact path="/">
-							<Home />
-						</Route>
-						<Route exact path="/user/userSignin">
-							<UserSignin />
-						</Route>
-						<Route exact path="/profesional/profesionalSignin">
-							<ProfesionalSignin />
-						</Route>
-						<Route exact path="/demo">
-							<Demo />
-						</Route>
-						<Route exact path="/disease/:id">
-							<Disease />
-						</Route>
-						<Route exact path="/perfil">
-							<Perfil />
-						</Route>
-						<Route exact path="/profesionales">
-							<Profesionales />
-						</Route>
-						<Route exact path="/servicios">
-							<Servicios />
-						</Route>
-						<Route exact path="/single/:theid">
-							<Single />
-						</Route>
-						<Route>
-							<h1 style={{ display: "flex", justifyContent: "center", marginTop: "3rem" }}>
-								Error 404! Página no encontrada! ☹️.
-							</h1>
-						</Route>
-					</Switch>
-					<Footer />
-				</ScrollToTop>
+				<Navigation />
+				<Switch>
+					<Route exact path="/">
+						<Home />
+					</Route>
+					<Route exact path="/user/userSignin">
+						<UserSignin />
+					</Route>
+					<Route exact path="/profesional/profesionalSignin">
+						<ProfesionalSignin />
+					</Route>
+					<Route exact path="/demo">
+						<Demo />
+					</Route>
+					<Route exact path="/disease/:id">
+						<Disease />
+					</Route>
+					<Route exact path="/perfil">
+						<Perfil />
+					</Route>
+					<Route exact path="/profesionales">
+						<Profesionales />
+					</Route>
+					<Route exact path="/servicios">
+						<Servicios />
+					</Route>
+					<Route exact path="/single/:theid">
+						<Single />
+					</Route>
+					<Route>
+						<h1 style={{ display: "flex", justifyContent: "center", marginTop: "3rem" }}>
+							Error 404! Página no encontrada! ☹️.
+						</h1>
+					</Route>
+				</Switch>
+				<Footer />
 			</BrowserRouter>
 		</div>
 	);
