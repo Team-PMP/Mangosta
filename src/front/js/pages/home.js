@@ -3,13 +3,14 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Context } from "../store/appContext";
 import "../../styles/home.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
-import ReactBootstrap, { Button, Card, CardDeck, Carousel, Image, Container, Row, Col } from "react-bootstrap";
+import ReactBootstrap, { Button, Card, CardDeck, Image, Container, Row, Col } from "react-bootstrap";
 import Homehero from "../../img/homehero.png";
 import Home1 from "../../img/home1.png";
 import Home2 from "../../img/home2.png";
 import Home3 from "../../img/home3.png";
 import Logo from "../../img/logo.png";
 import { Profile } from "../component/profile/profile";
+import { Carousel } from "../component/carousel";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
@@ -86,51 +87,6 @@ export const Home = () => {
 
 			{/* CAROUSEL */}
 
-			<div className="row" style={{ marginTop: "100px" }}>
-				<div className="carousel ">
-					<Carousel variant="dark">
-						<Carousel.Item>
-							<img
-								className="d-block w-100"
-								src="https://imagessl2.casadellibro.com/a/l/t5/22/9788441436022.jpg"
-								alt="First slide"
-								style={{ height: "500px" }}
-							/>
-							<Carousel.Caption>
-								<a href="https://www.casadellibro.com/libro-la-solucion-autoinmune-prevenir-e-invertir-el-especto-de-sintomas-y-enfermedades-autoinmunes/9788441436022/2799632?gclid=Cj0KCQjwnueFBhChARIsAPu3YkSRXmFbl1I3J-omjd9PNwJz3uEzfCNGGuswj1wmQImncg93mXdE1TIaApVFEALw_wcB">
-									PINCHA AQUÍ
-								</a>
-							</Carousel.Caption>
-						</Carousel.Item>
-						<Carousel.Item>
-							<img
-								className="d-block w-100"
-								src="https://imagessl2.casadellibro.com/a/l/t5/42/9788482987842.jpg"
-								alt="Second slide"
-								style={{ height: "500px" }}
-							/>
-							<Carousel.Caption>
-								<a href="https://www.casadellibro.com/libro-la-curacion-autoinmune/9788418000386/11395322?gclid=Cj0KCQjwnueFBhChARIsAPu3YkT8pIhNkzq4daIMr7GOXQAburDjFwb06WTbNx4S9YBOm1VGkgQ-pj8aAj7aEALw_wcB">
-									PINCHA AQUÍ
-								</a>
-							</Carousel.Caption>
-						</Carousel.Item>
-						<Carousel.Item>
-							<img
-								className="d-block w-100"
-								src="https://images-na.ssl-images-amazon.com/images/I/51wjQZQOgPL._SY264_BO1,204,203,200_QL40_ML2_.jpg"
-								alt="Third slide"
-								style={{ height: "500px" }}
-							/>
-							<Carousel.Caption>
-								<a href="https://www.amazon.es/Alimenta-Cerebro-Sorprendente-Intestinal-Cerebrode/dp/1101969822">
-									PINCHA AQUÍ
-								</a>
-							</Carousel.Caption>
-						</Carousel.Item>
-					</Carousel>
-				</div>
-			</div>
-		</div>
+			<Carousel></Carousel>
 	);
 };
