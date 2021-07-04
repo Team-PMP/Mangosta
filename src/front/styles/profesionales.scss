@@ -1,3 +1,23 @@
 .header{
-    background-color: black;
+    margin-top: 200px;
+    display: flex;
+    justify-content: space-evenly;
+
+    .card{
+        bordeR: 2px solid black;
+        width: 300px;
+        
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .card:hover{
+        box-shadow: 2px 2px 2px 2px rgba(8, 8, 8, 0.205);
+        transition: .5s;
+        cursor: pointer;
+        background-color: rgba(165, 236, 241, 0.76);
+    }
 }
+
+// Hasta aqui los estilos que Migue le ha dado, puedes modificar / borrar estos por los de tu gusto

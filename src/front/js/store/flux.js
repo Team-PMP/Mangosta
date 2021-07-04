@@ -18,16 +18,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			getProfessionals: () => {
-				// fetching data from the backend
-				const store = getStore();
-				fetch(process.env.BACKEND_URL + "api/users/professionals", {
+				// const store = getStore();
+				fetch(`${process.env.BACKEND_URL}/api/users/professionals`, {
 					method: "GET"
 				})
 					.then(resp => resp.json())
-					.then(data => {
-						setStore({ ...store, professionals: [...data] });
-						console.log(data);
-					})
+					.then(data => setStore({ professionals: data }))
 					.catch(error => console.log("Error loading message from backend", error));
 			},
 			createUser: data => {
