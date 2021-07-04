@@ -34,8 +34,8 @@ export const Profesionales = () => {
 	return (
 		<>
 			<div className="header">
-				{user.map(item => (
-					<div className="card" key={item}>
+				{store.professionals.map(item => (
+					<div className="card" key={item.id}>
 						<span className="name">{item.name}</span>
 						<span className="surname">{item.surname}</span>
 						<span className="email">{item.email}</span>
@@ -43,11 +43,6 @@ export const Profesionales = () => {
 						<span className="specialties">{item.specialties}</span>
 					</div>
 				))}
-				<span className="name">{item.name}</span>
-				<span className="surname">{item.surname}</span>
-				<span className="email">{item.email}</span>
-				<span className="phone">{item.phone}</span>
-				<span className="specialties">{item.specialties}</span>
 			</div>
 		</>
 	);
