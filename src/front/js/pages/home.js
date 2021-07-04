@@ -10,42 +10,13 @@ import Home2 from "../../img/home2.png";
 import Home3 from "../../img/home3.png";
 import Logo from "../../img/logo.png";
 import { Profile } from "../component/profile/profile";
-import { Carousel } from "../component/carousel";
+import { Carousel } from "../component/carousel/carousel";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
 
 	return (
 		<div className="background">
-			{/* JUMBOTRON */}
-
-			{/* <Card className="text-white">
-				<Card.Img
-					src="https://img.freepik.com/vector-gratis/fondo-innovacion-medica-patron-icono-salud_115579-738.jpg?size=626&ext=jpg"
-					alt="Card image"
-				/>
-				<Card.ImgOverlay styles={{ marginTop: "100px" }}>
-					<div className="Tittle">EL GOOGLE DE LAS ENFERMEDADES AUTOINMUNES</div>
-					<div className="Text">
-						<Card.Text>
-							<br /> Una red social que acerca los profesionales
-							<br /> a los que estan en búsqueda de ayuda
-							<br />
-							tan valiosa como la suya.
-						</Card.Text>
-						<Card.Text>
-							Nos encargamos que todos nuestros usuarios
-							<br /> ya sea profesional o paciente,
-							<br /> tenga un trato rapido, eficaz y satisfactorio.
-						</Card.Text>
-						<Card.Text>
-							Disfruta de todas nuestras ventajas.
-							<br /> Conectamos salud.
-						</Card.Text>
-					</div>
-				</Card.ImgOverlay>
-			</Card> */}
-
 			<div className="Tittle" style={{ paddingTop: "100px" }}>
 				El <strong>google</strong> de las enfermedades <strong>autoinmunes</strong>
 			</div>
@@ -86,7 +57,7 @@ export const Home = () => {
 			</div>
 
 			{/* CAROUSEL */}
-
-			<Carousel></Carousel>
+			<Carousel />
+		</div>
 	);
 };
