@@ -65,7 +65,7 @@ export const Disease = () => {
 				{/* Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop */}
 				<Row className="postRow">
 					<Col xs={12} md={12} className="postColTitle">
-						<h2>mas informacion acerca de esta enfermedad</h2>
+						<h2>Mas información acerca de esta enfermedad</h2>
 					</Col>
 					<Col xs={12} md={12} className="postCol">
 						{postsList}
@@ -73,28 +73,28 @@ export const Disease = () => {
 				</Row>
 				<Row className="buttonRow">
 					<Col xs={12} md={8}>
-						<h3>NEW POST</h3>
+						<h3 style={{ paddingTop: "10px" }}>NEW POST</h3>
 						<hr />
 						<div className="mb-3">
 							<div className="form-group">
-								<label>titulo</label>
+								<label>Titulo</label>
 								<input
 									type="text"
 									className="form-control"
 									id="title"
-									placeholder="escribe el titulo de tu post"
+									placeholder="Escribe el titulo de tu post"
 									value={title}
 									onChange={event => setTitle(event.target.value)}
 								/>
 							</div>
 
 							<div className="form-group">
-								<label>imagen</label>
+								<label>Imagen del post</label>
 								<input
 									type="text"
 									className="form-control"
 									id="image"
-									placeholder="pon aqui la url de la imagen (menos de 120 caracteres)"
+									placeholder="Url de la imagen (menos de 120 caracteres)"
 									value={image}
 									onChange={event => setImage(event.target.value)}
 								/>
@@ -102,11 +102,13 @@ export const Disease = () => {
 
 							<div className="form-group">
 								<label>Post</label>
-								<input
+								<textarea
+									rows="4"
+									cols="50"
 									type="text"
 									className="form-control"
 									id="info"
-									placeholder="Escribe tu articulo aqui"
+									placeholder="Escribe tu articulo aquí"
 									value={info}
 									onChange={event => setInfo(event.target.value)}
 								/>
