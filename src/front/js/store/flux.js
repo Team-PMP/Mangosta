@@ -9,6 +9,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			diseases: [],
 			currentDisease: {},
 			latestPosts: [],
+			createPost: {},
 			professionals: []
 		},
 		actions: {
@@ -74,12 +75,32 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(data => setStore({ currentDisease: data }))
 					.catch(error => console.log("Error loading message from backend", error));
 			},
+			createPost: data => {
+				fetch(`${process.env.BACKEND_URL}/api/posts`, {
+					method: "POST",
+					body: JSON.stringify(data),
+					headers: {
+						"Content-Type": "application/json"
+					}
+				})
+					.then(resp => {
+						if (resp.status !== 200) {
+							console.log(`response status was not 200: ${resp.status}`);
+							return;
+						}
+						resp.json().then(data => {
+							console.log(data);
+						});
+					})
+					.then(data => setStore({ createPost: data }))
+					.catch(error => console.log("mensaje de prueba", error));
+			},
 
 			loginUser: (data, callback) => {
 				fetch(process.env.BACKEND_URL + "/api/login", {
 					method: "POST",
 					body: JSON.stringify(data),
-					header: {
+					headers: {
 						"Content-Type": "application/json"
 					}
 				})
