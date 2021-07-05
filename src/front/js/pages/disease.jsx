@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
@@ -15,23 +15,9 @@ export const Disease = () => {
 	const { id } = useParams();
 	console.log(id);
 	console.log(store.currentDisease.name);
-	const postsPrueba = [
-		{
-			title: "The Seven Deadly Sins",
-			info: "cositas para probar",
-			image: "https://picsum.photos/200"
-		},
-		{
-			title: "The Seven Deadly Sins",
-			info: "cositas para probar",
-			image: "https://picsum.photos/200"
-		},
-		{
-			title: "The Seven Deadly Sins",
-			info: "cositas para probar",
-			image: "https://picsum.photos/200"
-		}
-	];
+	const [image, setImage] = useState("");
+	const [title, setTitle] = useState("");
+	const [info, setInfo] = useState("");
 
 	const postsList = store.latestPosts.map((post, i) => {
 		const { title, info, image } = post;
@@ -42,63 +28,94 @@ export const Disease = () => {
 		() => {
 			actions.getCurrentDisease(id);
 			actions.getLatestPosts(id);
+			/* actions.getcurrentUser(data); */
 		},
 		[id]
 	);
+	console.log(store);
+	const submit_entry = () => {
+		const post = {
+			image: image,
+			title: title,
+			info: info,
+			user_id: 1,
+			disease_id: id
+		};
+		actions.createPost(post);
+	};
+
 	return (
-		<Container style={{ paddingTop: "150px" }}>
-			{/* Stack the columns on mobile by making one full-width and the other half-width */}
-			<Row className="firstRow justify-content-md-center">
-				<Col className="firstCol" xs={12} md={8}>
-					<h1 className="diseaseName">{store.currentDisease.name}</h1>
-				</Col>
-				<Col xs={12} md={4} className="imgCol">
-					<img className="diseaseImg" src={store.currentDisease.image} alt="" />
-				</Col>
-			</Row>
+		<div className="backgroundAll">
+			<Container style={{ paddingTop: "150px" }}>
+				{/* Stack the columns on mobile by making one full-width and the other half-width */}
+				<Row className="firstRow justify-content-md-center">
+					<Col className="firstCol" xs={12} md={8}>
+						<h1 className="diseaseName">{store.currentDisease.name}</h1>
+					</Col>
+					<Col xs={12} md={4} className="imgCol">
+						<img className="diseaseImg" src={store.currentDisease.image} alt="" />
+					</Col>
+				</Row>
 
-			{/* Columns are always 50% wide, on mobile and desktop */}
-			<Row>
-				<Col xs={12} md={8} className="textCol">
-					{store.currentDisease.information}
-				</Col>
-			</Row>
-			{/* Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop */}
-			<Row className="postRow">
-				<Col xs={12} md={12}>
-					{postsList}
-				</Col>
-			</Row>
-			<Row className="buttonRow">
-				<Col xs={12} md={8}>
-					<h3>NEW POST</h3>
-					<hr />
-					<div className="mb-3">
-						<div className="form-group">
-							<label>titulo</label>
-							<input type="text" className="form-control" id="name" placeholder="titulo del post" />
-						</div>
+				{/* Columns are always 50% wide, on mobile and desktop */}
+				<Row>
+					<Col xs={12} md={8} className="textCol">
+						{store.currentDisease.information}
+					</Col>
+				</Row>
+				{/* Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop */}
+				<Row className="postRow">
+					<Col xs={12} md={12} className="postCol">
+						{postsList}
+					</Col>
+				</Row>
+				<Row className="buttonRow">
+					<Col xs={12} md={8}>
+						<h3>NEW POST</h3>
+						<hr />
+						<div className="mb-3">
+							<div className="form-group">
+								<label>titulo</label>
+								<input
+									type="text"
+									className="form-control"
+									id="title"
+									placeholder="escribe el titulo de tu post"
+									value={title}
+									onChange={event => setTitle(event.target.value)}
+								/>
+							</div>
 
-						<div className="form-group">
-							<label>Nombre</label>
-							<input type="text" className="form-control" id="name" placeholder="Enter Your Name" />
-						</div>
+							<div className="form-group">
+								<label>imagen</label>
+								<input
+									type="text"
+									className="form-control"
+									id="image"
+									placeholder="pon aqui la url de la imagen (menos de 120 caracteres)"
+									value={Image}
+									onChange={event => setImage(event.target.value)}
+								/>
+							</div>
 
-						<div className="form-group">
-							<label>Post</label>
-							<input
-								type="text"
-								className="form-control"
-								id="name"
-								placeholder="Escribe tu articulo aqui"
-							/>
+							<div className="form-group">
+								<label>Post</label>
+								<input
+									type="text"
+									className="form-control"
+									id="info"
+									placeholder="Escribe tu articulo aqui"
+									value={info}
+									onChange={event => setInfo(event.target.value)}
+								/>
+							</div>
+							<button className="btn btn-primary" onClick={submit_entry}>
+								Postear
+							</button>
 						</div>
-						<button className="btn btn-primary" onClick="submit_entry();">
-							Guardar
-						</button>
-					</div>
-				</Col>
-			</Row>
-		</Container>
+					</Col>
+				</Row>
+			</Container>
+		</div>
 	);
 };

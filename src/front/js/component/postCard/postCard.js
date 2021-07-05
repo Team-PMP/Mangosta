@@ -6,7 +6,7 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 function PostCard(props) {
 	return (
-		<Card style={{ width: "25rem" }}>
+		<Card style={{ width: "33%" }}>
 			<Card.Img variant="top" src={props.imgPost} />
 			<Card.Body>
 				<Card.Title>{props.titlePost}</Card.Title>

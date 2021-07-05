@@ -154,3 +154,30 @@ def handle_create_user():
 
     print("end payload")
     return jsonify(user.serialize())
+
+@api.route('/posts', methods=['POST'])
+def create_post():
+    req = request.get_json()
+    # validación
+    if req is None:
+        return "The request req is null", 400
+    if 'title' not in req:
+        return 'Especificar un titulo para el post', 400
+    if 'info' not in req:
+        return 'especificar informacion del post', 400
+    if 'image' in req:
+        image = req['image'],
+    if 'user_id' in req:
+        user_id = req['user_id'],
+    if 'disease_id' in req:
+        disease_id = req['disease_id'],
+    
+
+    print(req)
+    post = Post(title=req['title'], info=req['info'], image=req['image'], user_id=req['user_id'], disease_id=req['disease_id'])
+
+    db.session.add(post)
+    db.session.commit()
+
+    print("end req")
+    return jsonify(post.serialize())
