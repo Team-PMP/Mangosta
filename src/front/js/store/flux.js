@@ -78,9 +78,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			createPost: data => {
 				fetch(`${process.env.BACKEND_URL}/api/posts`, {
 					method: "POST",
-					credentials: "include",
 					body: JSON.stringify(data),
-					cache: "no-cache",
 					headers: {
 						"Content-Type": "application/json"
 					}
@@ -95,7 +93,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						});
 					})
 					.then(data => setStore({ createPost: data }))
-					.catch(error => console.log("Error loading message from backend", error));
+					.catch(error => console.log("mensaje de prueba", error));
 			},
 
 			loginUser: (data, callback) => {

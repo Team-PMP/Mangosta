@@ -28,7 +28,6 @@ export const Disease = () => {
 		() => {
 			actions.getCurrentDisease(id);
 			actions.getLatestPosts(id);
-			/* actions.getcurrentUser(data); */
 		},
 		[id]
 	);
@@ -38,7 +37,7 @@ export const Disease = () => {
 			image: image,
 			title: title,
 			info: info,
-			user_id: 1,
+			user_id: 2,
 			disease_id: id
 		};
 		actions.createPost(post);
@@ -65,6 +64,9 @@ export const Disease = () => {
 				</Row>
 				{/* Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop */}
 				<Row className="postRow">
+					<Col xs={12} md={12} className="postColTitle">
+						<h2>mas informacion acerca de esta enfermedad</h2>
+					</Col>
 					<Col xs={12} md={12} className="postCol">
 						{postsList}
 					</Col>
@@ -93,7 +95,7 @@ export const Disease = () => {
 									className="form-control"
 									id="image"
 									placeholder="pon aqui la url de la imagen (menos de 120 caracteres)"
-									value={Image}
+									value={image}
 									onChange={event => setImage(event.target.value)}
 								/>
 							</div>
