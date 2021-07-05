@@ -130,10 +130,10 @@ export const ProfesionalSignin = () => {
 							value={specialty}
 							onChange={event => setSpecialty(event.target.value)}>
 							<option value="Esp">Seleccione una especialidad</option>
-							<option value="End">Endocrinología</option>
-							<option value="Inm">Inmunología</option>
-							<option value="Der">Dermatología</option>
-							<option value="Reu">Reumatología</option>
+							<option value="1">Endocrinología</option>
+							<option value="2">Inmunología</option>
+							<option value="3">Dermatología</option>
+							<option value="4">Reumatología</option>
 						</Form.Control>
 					</Col>
 				</Form.Group>
