@@ -1,21 +1,25 @@
-.serviciosContainer{
+.container-servicios{
+    background: linear-gradient(#ffffff 20%, #c8e7ec) no-repeat;
+    
+    .cardDeck{
+       
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 100px;
+        font-family: Verdana;
 
-}
+        .serviciosImage{
+        width: 250px;
+        height: 250px;
+            
+    }
+    .link{
+        margin-top: 20px;
+        font-family: Verdana;
+        font-size: 20px;
+    }
 
-.serviciosContainer h1{
-    font-weight: 400;
-    width: 30rem;
-    font-size: 1.8rem;
-    text-align: center;
-    letter-spacing: 1px;
+    }
+   
 }
-
-.divCenter{
-    display: flex;
-    justify-content: center;
-    margin-top: 4rem;
-}
-
-.wrapper{
-    border: 1px solid red;
-}
+   
