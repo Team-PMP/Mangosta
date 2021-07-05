@@ -8,7 +8,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			profile: [],
 			diseases: [],
 			currentDisease: {},
-			latestPosts: []
+			latestPosts: [],
+			createPost: {},
+			professionals: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -16,6 +18,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 				getActions().changeColor(0, "green");
 			},
 
+			getProfessionals: () => {
+				// const store = getStore();
+				fetch(`${process.env.BACKEND_URL}/api/users/professionals`, {
+					method: "GET"
+				})
+					.then(resp => resp.json())
+					.then(data => setStore({ professionals: data }))
+					.catch(error => console.log("Error loading message from backend", error));
+			},
 			createUser: data => {
 				// fetching data from the backend
 				fetch(process.env.BACKEND_URL + "/api/users", {
@@ -64,12 +75,32 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(data => setStore({ currentDisease: data }))
 					.catch(error => console.log("Error loading message from backend", error));
 			},
+			createPost: data => {
+				fetch(`${process.env.BACKEND_URL}/api/posts`, {
+					method: "POST",
+					body: JSON.stringify(data),
+					headers: {
+						"Content-Type": "application/json"
+					}
+				})
+					.then(resp => {
+						if (resp.status !== 200) {
+							console.log(`response status was not 200: ${resp.status}`);
+							return;
+						}
+						resp.json().then(data => {
+							console.log(data);
+						});
+					})
+					.then(data => setStore({ createPost: data }))
+					.catch(error => console.log("mensaje de prueba", error));
+			},
 
 			loginUser: (data, callback) => {
 				fetch(process.env.BACKEND_URL + "/api/login", {
 					method: "POST",
 					body: JSON.stringify(data),
-					header: {
+					headers: {
 						"Content-Type": "application/json"
 					}
 				})

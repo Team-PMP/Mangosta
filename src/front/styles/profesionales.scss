@@ -1,41 +1,38 @@
-.profesionalImage{
-    width: 30rem;
-    height: 30rem;
+.backall{
+    background: linear-gradient(#ffffff 20%, #c8e7ec) no-repeat;
 }
-
-.contentProfesionales{
+.header{
+    margin-top: 200px;
     display: flex;
-    justify-content: center;
-    margin-top: 5rem;
-    padding-left: 7rem;
+    justify-content: space-evenly;
+    font-size: large;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    flex-wrap:wrap;
+
+
+    .card{
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        max-width: 300px;
+        margin: 1rem;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 6px solid  #03e9f4;
+        border-style: outset;
+        padding: 1rem;
+    }
+    .name{
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+    .card:hover{
+        box-shadow: 2px 2px 2px 2px rgba(8, 8, 8, 0.205);
+        transition: .5s;
+        cursor: pointer;
+        background-color: rgba(165, 236, 241, 0.76);
+    }
 }
 
-.contentProfesiones{
-    width: 90%;
-    margin-left: 5%;
-    display: flex;
-    justify-content: space-around;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    margin-top: 3rem;
-    
-}
-
-.cardProfesiones{
-    border: 1px solid black;
-    border-radius: 10px;
-    width: 15rem;
-    height: 3rem;
-    text-align: center;
-    background-color: #03e8f4d8;
-    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
-    padding-top: 5px;
-    cursor: pointer;
-    transition: .7s;
-}
-.cardProfesiones:hover{
-    // opacity: .8;
-    transform: translateY(-5px);
-    transition: .7s;
-    box-shadow: 0px 7px 3px rgba(0, 0, 0, 0.25);
-}
+// Hasta aqui los estilos que Migue le ha dado, puedes modificar / borrar estos por los de tu gusto

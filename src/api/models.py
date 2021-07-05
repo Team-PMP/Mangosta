@@ -186,8 +186,5 @@ class Specialty (db.Model):
     def serialize(self):
         return {
             "id": self.id,
-            "name": self.information,
-            "users": list(map(lambda x: x.serialize(), self.users)),
-            "diseases": list(map(lambda x: x.serialize(), self.diseases))
-           
- }
+            "name": self.name,
+        }
