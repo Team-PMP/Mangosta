@@ -28,7 +28,7 @@ export const Servicios = () => {
 						<Card className="border-0">
 							<Card.Img
 								variant="top"
-								src="https://ae01.alicdn.com/kf/HTB1r0_CXOzxK1RkSnaVq6xn9VXa0.jpg_q50.jpg"
+								src="https://www.figma.com/file/8NSNpxvTj9WVU9zsWmdZ6J/Dise%C3%B1o-PMP-version2.0?node-id=1%3A10995"
 							/>
 							<Card.Body>
 								<Card.Title>ACUPUNTURA</Card.Title>

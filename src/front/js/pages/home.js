@@ -16,13 +16,13 @@ export const Home = () => {
 	const { store, actions } = useContext(Context);
 
 	return (
-		<div className="background">
+		<div className="background col-12">
 			<div className="Tittle" style={{ paddingTop: "100px" }}>
 				El <strong>google</strong> de las enfermedades <strong>autoinmunes</strong>
 			</div>
 			<img src={Homehero} width="500px" height="500px" className="heroImage" />
 			<div className="Text">
-				<Card.Text>
+				<Card.Text className="col-12">
 					Un portal que acerca los profesionales a los que estan en búsqueda de ayuda. Nos encargamos que
 					todos nuestros usuarios ya sea <span>profesionales</span> o <span>pacientes</span>, tenga un trato
 					rapido, eficaz y satisfactorio. <br />
@@ -31,7 +31,7 @@ export const Home = () => {
 			</div>
 
 			{/* HEADER */}
-			<div className="container-fluid" style={{ marginTop: "20rem" }}>
+			<div className="container-fluid col-12 mb-2" style={{ marginTop: "20rem" }}>
 				<div className="header">
 					<h1>¿Nuevo en Autodoctor?</h1>
 					<p>Conecta con los mejores profesionales y la mejor comunidad en unos sencillos pasos</p>
@@ -39,7 +39,7 @@ export const Home = () => {
 
 				{/* BODY-CARDS */}
 				<div className="col-12 mb-2  deck">
-					<CardDeck>
+					<CardDeck style={{ marginBottom: "8rem" }}>
 						<div className="explain-card">
 							<img src={Home1} />
 							<span className="text-info">Create una cuenta o haz login.</span>
