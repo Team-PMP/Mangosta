@@ -145,6 +145,8 @@ def handle_create_user():
         picture = payload['picture'],
     if 'phone' in payload:
         phone = payload['phone'],
+    if 'specialty' in payload:
+        specialty_id = payload['specialty'],
     if 'profesional' in payload:
         profesional = True
     if 'password' not in payload:
@@ -153,10 +155,14 @@ def handle_create_user():
     print(payload)
     user = User(email=payload['email'], password=payload['password'], name=payload['name'],
                 surname=payload['surname'], phone=phone, picture=picture, profesional=profesional)
-
+    
     db.session.add(user)
-    db.session.commit()
+    specialty = Specialty.query.get(specialty_id)
+    if specialty is not None:
+        user.specialties.append(specialty)
 
+    db.session.commit()
+    print(specialty)
     print("end payload")
     return jsonify(user.serialize())
 

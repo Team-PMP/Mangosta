@@ -9,6 +9,7 @@ import Meditacion from "../../img/meditacion.png";
 import Alimentacion from "../../img/alimentacion.png";
 import Chinamedicina from "../../img/China-medicina.png";
 import Bro from "../../img/bro.png";
+import Acupuntura from "../../img/acupuntura.png";
 //Components
 
 export const Servicios = () => {
@@ -48,9 +49,9 @@ export const Servicios = () => {
 								</div>
 							</div>
 							<div>
-								<img src={Bro} className="serviciosImage" />
+								<img src={Acupuntura} className="serviciosImage" />
 								<div className="link">
-									<a href="https://www.gaia.com/">CLASES DE MEDITACIÓN</a>
+									<a href="https://www.gaia.com/">ACUPUNTURA</a>
 								</div>
 							</div>
 						</div>

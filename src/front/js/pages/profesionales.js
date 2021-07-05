@@ -27,11 +27,11 @@ export const Profesionales = () => {
 							</span>
 							{/* combino item.name con item.surname para que aparezca el nombre completo */}
 							<span className="email">
-								<a href={`mailto: ${item.email}`}>{item.email}</a>
+								<a href={`mailto:${item.email}`}>{item.email}</a>
 							</span>
 							{/*  este href hace que si haces click se abra gmail para enviar un email a esta persona sin necesidad de copiar el correro */}
 							<span className="phone">{item.phone}</span>
-							<span className="specialties">{item.specialties}</span>
+							<span className="specialties">{item.specialties[0] ? item.specialties[0].name : null}</span>
 						</div>
 					))}
 				</div>
