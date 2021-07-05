@@ -37,6 +37,17 @@ def get_all_users():
 
     return jsonify(serialized_users), 200
 
+@api.route('/users/professionals', methods=['GET'])
+def get_all_professionals():
+    
+    all_professionals = User.query.filter_by(profesional= True).all()
+
+    serialized_professionals = []
+    for professional in all_professionals:
+        serialized_professionals.append(professional.serialize())
+    print(serialized_professionals)
+
+    return jsonify(serialized_professionals), 200
 
 # RUTAS PRIVADAS
 

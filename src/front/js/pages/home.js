@@ -59,7 +59,7 @@ export const Home = () => {
 			</div>
 
 			{/* HEADER */}
-			<div className="container-fluid" style={{ marginTop: "20rem" }}>
+			<div style={{ marginTop: "20rem" }}>
 				<div className="header">
 					<h1>¿Nuevo en Autodoctor?</h1>
 					<p>Conecta con los mejores profesionales y la mejor comunidad en unos sencillos pasos</p>
