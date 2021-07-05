@@ -37,6 +37,17 @@ def get_all_users():
 
     return jsonify(serialized_users), 200
 
+@api.route('/users/professionals', methods=['GET'])
+def get_all_professionals():
+    
+    all_professionals = User.query.filter_by(profesional= True).all()
+
+    serialized_professionals = []
+    for professional in all_professionals:
+        serialized_professionals.append(professional.serialize())
+    print(serialized_professionals)
+
+    return jsonify(serialized_professionals), 200
 
 # RUTAS PRIVADAS
 
@@ -57,15 +68,9 @@ def get_all_users():
 @api.route('/profiles', methods=['GET'])
 @jwt_required()
 def handle_profile():
-    user_email = get_jwt_identity()
-    user= User.get_user_by_email(user_email)
-    return jsonify({"email": email,
-             "name": name,
-             "surname": surname,
-             "phone": phone,
-             "picture": picture,
-             "profesional": profesional,
-             "specialties": specialties,}), 200
+    user_id = get_jwt_identity()
+    user= User.get_user_by_id(user_id)
+    return jsonify(user.serialize()), 200
 
     return jsonify({"email": email,
                     "name": name,
